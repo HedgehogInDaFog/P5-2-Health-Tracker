@@ -4,67 +4,142 @@
     -ms-box-sizing: border-box;
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Tahoma, sans-serif;
+    margin: 0 auto;
 }
 
-.container {
+.grid {
+    max-width: 960px;
+    width: 100%;
+
+}
+
+.row {
+    width: 100%;
+    margin: 2px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 600px;
-    width: 100%;
-    margin-bottom: 10px;
-    margin-top: 10px;
-}
-
-.full-width {
-    width:  100%;
-}
-
-h1 {
-    font-size: 32px;
-    color: green;
     text-align: center;
-    letter-spacing: 2px;
-    margin: 2px;
-    text-transform: uppercase;
+    margin: 0;
+    align-items: center;
 }
 
-.search-string {
-    width: 60%;
-    border-radius: 20px;
-    font-size: 22px;
-    padding-left: 15px;
+.col-1 {
+    width: 8.33%;
 }
 
-.items-list {
-    width: 65%;
-    font-size: 18px;
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
 }
 
 .button {
-    width: 30%;
     font-size: 22px;
     max-width: 300px;
-    background-color: green;
+    background-color: #519600;
     color: white;
     text-align: center;
-    border-radius: 20px;
-    margin: 10px;
+    border-radius: 0px;
+    margin: 20px auto;
 }
 
 .counter {
-    width: 100%;
-    font-size: 54px;
-    max-width: 200px;
-    background-color: green;
+    font-size: 38px;
+    background-color: #519600;
+    color: white;
+    margin: 10px auto;
+}
+
+.date {
+    font-size: 24px;
+    color: #519600;
+    letter-spacing: 1.5px;
+    margin: 20px auto;
+}
+
+.header {
+    background-color: #519600;
+    margin: 0px auto;
+}
+
+.items-list {
+    font-size: 18px;
+}
+
+.lr-margins {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.normal-text {
+    font-size: 26px;
+    color: #519600;
+    letter-spacing: 1.5px;
+    margin: 10px auto;
+}
+
+.search-string {
+    font-size: 22px;
+    padding-left: 15px;
+    margin: 20px auto;
+}
+
+.small-button {
+    background-color: #519600; /*7CE700 71AD2B  519600  9FF33D  B5F36D*/
+    color: white;
+    font-size: 24px;
+    margin: 20px auto;
+}
+
+
+h1 {
+    font-size: 34px;
     color: white;
     text-align: center;
-    border-radius: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    letter-spacing: 2px;
+    margin: 2px;
 }
+
+
+
+
+
+
