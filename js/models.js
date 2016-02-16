@@ -5,6 +5,6 @@ app.Food = Backbone.Model.extend({
     name: '',
     calories: 0,
     quantity: 0,
-    date: '';
   }
 });
+
