@@ -3,7 +3,7 @@
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Grande', Verdana, Tahoma, sans-serif;
+    font-family:  'Lucida Grande',  Verdana, Tahoma, sans-serif;
     margin: 0 auto;
 }
 
@@ -74,7 +74,7 @@
 .button {
     font-size: 22px;
     max-width: 300px;
-    background-color: #519600;
+    background-color: #000035;
     color: white;
     text-align: center;
     border-radius: 0px;
@@ -83,21 +83,22 @@
 
 .counter {
     font-size: 38px;
-    background-color: #519600;
+    background-color: #000035;
     color: white;
     margin: 10px auto;
 }
 
 .date {
-    font-size: 24px;
-    color: #519600;
-    letter-spacing: 1.5px;
+    font-weight: bold;
+    font-size: 26px;
+    color: #000035;
+    letter-spacing: 1.2px;
     margin: 20px auto;
 }
 
 .header {
-    background-color: #519600;
-    margin: 0px auto;
+    background-color: #000035;
+    margin: 0 auto 30px auto;
 }
 
 .items-list {
@@ -112,7 +113,7 @@
 
 .normal-text {
     font-size: 26px;
-    color: #519600;
+    color: #000035;
     letter-spacing: 1.5px;
     margin: 10px auto;
     text-align: left;
@@ -121,13 +122,13 @@
 .search-string {
     font-size: 22px;
     padding-left: 15px;
-    margin: 20px auto;
+
 }
 
 .small-button {
-    background-color: #519600; /*7CE700 71AD2B  519600  9FF33D  B5F36D*/
+    background-color: #000035;
     color: white;
-    font-size: 24px;
+    font-size: 18px;
     margin: 20px auto;
 }
 
