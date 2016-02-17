@@ -19,7 +19,10 @@
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    margin: 0;
+    margin: 5px auto;
+}
+
+.center {
     align-items: center;
 }
 
@@ -78,14 +81,14 @@
     color: white;
     text-align: center;
     border-radius: 0px;
-    margin: 20px auto;
 }
 
 .counter {
     font-size: 38px;
-    background-color: #000035;
-    color: white;
+    background-color: white;
+    color: #000035;
     margin: 10px auto;
+    font-weight: bold;
 }
 
 .date {
@@ -93,11 +96,10 @@
     font-size: 26px;
     color: #000035;
     letter-spacing: 1.2px;
-    margin: 20px auto;
 }
 
 .header {
-    background-color: #000035;
+    background-color: white;
     margin: 0 auto 30px auto;
 }
 
@@ -115,13 +117,14 @@
     font-size: 26px;
     color: #000035;
     letter-spacing: 1.5px;
-    margin: 10px auto;
+    margin: 10px 0;
     text-align: left;
 }
 
 .search-string {
     font-size: 22px;
     padding-left: 15px;
+    width: 100%;
 
 }
 
@@ -129,13 +132,21 @@
     background-color: #000035;
     color: white;
     font-size: 18px;
-    margin: 20px auto;
+}
+
+.small-text {
+    font-size: 20px;
+    color: #000035;
+    letter-spacing: 1.1px;
+    margin: 2px 0;
+    text-align: left;
 }
 
 
 h1 {
-    font-size: 34px;
-    color: white;
+    font-weight: 100;
+    font-size: 32px;
+    color: #000035;
     text-align: center;
     letter-spacing: 2px;
     margin: 2px;
