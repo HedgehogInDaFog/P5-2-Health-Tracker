@@ -5,7 +5,6 @@ app.FoodList = Backbone.Collection.extend({
   initialize: function(models, options) {
     this.date = options.date;
     this.url = "https://burning-heat-7242.firebaseio.com/" + this.date;
-    console.log(this.date);
   },
 
   model: app.Food,
