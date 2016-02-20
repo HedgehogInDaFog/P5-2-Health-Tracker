@@ -20,6 +20,11 @@ app.FoodList = Backbone.Collection.extend({
 
 });
 
+app.SearchList = Backbone.Collection.extend({
+
+  model: app.Search,
+});
+
 
 
 /*simple working example

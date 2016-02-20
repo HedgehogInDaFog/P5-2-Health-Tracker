@@ -83,7 +83,7 @@
     border-radius: 0px;
 }
 
-.counter {
+#counter {
     font-size: 38px;
     background-color: white;
     color: #000035;
@@ -140,6 +140,10 @@
     letter-spacing: 1.1px;
     margin: 2px 0;
     text-align: left;
+}
+
+#eated-food-view {
+    width: 100%;
 }
 
 

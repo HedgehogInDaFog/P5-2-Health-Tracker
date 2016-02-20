@@ -8,3 +8,9 @@ app.Food = Backbone.Model.extend({
   }
 });
 
+app.Search = Backbone.Model.extend({
+  defaults: {
+    name: '',
+    calories: 0
+  }
+});

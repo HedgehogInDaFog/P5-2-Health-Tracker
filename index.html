@@ -38,7 +38,7 @@
             <div class="row center">
               <div class="col-4"></div>
               <div class="col-4">
-                <p class="counter">1375</p>
+                <p id="counter"></p>
               </div>
               <div class="col-4">
                 <p class="normal-text">kcal</p>
@@ -47,8 +47,15 @@
             <div class="row">
               <p class="normal-text">You've eated:</p>
             </div>
-            <div id="eated-food-view">
-            </div>
+                  <div class="row">
+                    <div class="col-6"><p class="small-text">Name</p></div>
+                    <div class="col-3"><p class="small-text">ccal</p></div>
+                    <div class="col-1"><p class="small-text">qnt.</p></div>
+                    <div class="col-1"></div>
+                    <div class="col-1"><p class="small-text"></p></div>
+                    <hr class="col-12">
+                  </div>
+            <div id="eated-food-view"></div>
           </div>
         </div>
         <div class="col-1"></div>
@@ -86,6 +93,17 @@
         </div>
       </div>
     </div>
+
+    <script id="foodViewTemplate" type="text/template">
+      <div class="row">
+        <div class="col-6"><p class="small-text"><%= name %></p></div>
+        <div class="col-3"><p class="small-text"><%= calories %></p></div>
+        <div class="col-1"><p class="small-text"><%= quantity %></p></div>
+        <div class="col-1"></div>
+        <div class="col-1"><p class="small-text">X</p></div>
+        <hr class="col-12">
+      </div>
+    </script>
 
     <script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
     <script src="js/libs/jquery.min.js" type="text/javascript"></script>
