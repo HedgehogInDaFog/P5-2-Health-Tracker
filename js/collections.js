@@ -2,12 +2,12 @@ var app = app || {};
 
 app.FoodList = Backbone.Collection.extend({
 
+  model: app.Food,
+
   initialize: function(models, options) {
     this.date = options.date;
     this.url = "https://burning-heat-7242.firebaseio.com/" + this.date;
   },
-
-  model: app.Food,
 
   totalCalories: function() {
     var sum = 0;
@@ -21,7 +21,6 @@ app.FoodList = Backbone.Collection.extend({
 });
 
 app.SearchList = Backbone.Collection.extend({
-
   model: app.Search,
 });
 

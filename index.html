@@ -71,36 +71,30 @@
           </div>
           <div class="row">
             <p class="normal-text">Search results:</p>
-            <div class="row">
-              <div class="col-11">
-                <p class="small-text">Food 1: 123 kcal</p>
-              </div>
-              <div class="col-1">
-                <p class="small-text">✓</p>
-              </div>
-              <hr class="col-12">
-            </div>
-            <div class="row">
-              <div class="col-11">
-                <p class="small-text">Food 2: 1223 kcal</p>
-              </div>
-              <div class="col-1">
-                <p class="small-text">✓</p>
-              </div>
-              <hr class="col-12">
-            </div>
+            <div id="search-view"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <script id="foodViewTemplate" type="text/template">
+    <script id="foodItemTemplate" type="text/template">
       <div class="row">
         <div class="col-6"><p class="small-text"><%= name %></p></div>
         <div class="col-3"><p class="small-text"><%= calories %></p></div>
         <div class="col-1"><p class="small-text"><%= quantity %></p></div>
         <div class="col-1"></div>
         <div class="col-1"><p class="small-text">X</p></div>
+        <hr class="col-12">
+      </div>
+    </script>
+
+    <script id="searchItemTemplate" type="text/template">
+      <div class="row">
+        <div class="col-6"><p class="small-text"><%= name %></p></div>
+        <div class="col-1"></div>
+        <div class="col-3"><p class="small-text"><%= calories %></p></div>
+        <div class="col-1"></div>
+        <div class="col-1"><p class="small-text">✓</p></div>
         <hr class="col-12">
       </div>
     </script>

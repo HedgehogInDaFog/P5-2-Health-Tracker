@@ -24,7 +24,7 @@ var FoodListView = Backbone.View.extend({
 var FoodView = Backbone.View.extend({
 	tagName: 'div',
 
-	template: _.template($('#foodViewTemplate').html() ),
+	template: _.template($('#foodItemTemplate').html() ),
 
 	render: function() {
 		this.$el.html( this.template(this.model.toJSON()) );
@@ -41,16 +41,46 @@ var CounterView = Backbone.View.extend({
 	    this.listenTo(this.collection, 'all', this.render);
   	},
 
-	template: _.template($('#counterTemplate').html() ),
-
 	render: function() {
 		this.$el.html(this.collection.totalCalories() );
 		return this;
 	}
 });
 
+
+var SearchListView = Backbone.View.extend({
+	el:  '#search-view',
+
+	initialize: function() {
+	    this.render();
+	    this.listenTo(this.collection, 'all', this.render);
+  	},
+
+	render: function() {
+		this.$el.empty();
+
+		this.collection.each(function(searchItem) {
+			var searchItemView = new SearchView({ model: searchItem });
+			this.$el.append(searchItemView.render().el);
+		}, this);
+
+		return this;
+	}
+});
+
+var SearchView = Backbone.View.extend({
+	tagName: 'div',
+
+	template: _.template($('#searchItemTemplate').html() ),
+
+	render: function() {
+		this.$el.html( this.template(this.model.toJSON()) );
+		return this;
+	}
+});
+
 /*
-//simple working example
+//simple working example for FoodView, FoodListView, CounterView
 app.mod1 = new app.Food({
                       name: 'Food # 1',
                       calories: 321,
@@ -69,10 +99,33 @@ app.mod3 = new app.Food({
                       quantity: 12,
                     });
 
-app.FoodList1 = new app.FoodList([app.mod1, app.mod2], {date : '27091987'});
+app.foodList1 = new app.FoodList([app.mod1, app.mod2], {date : '27091987'});
 
-app.view = new FoodListView({ collection: app.FoodList1 });
+app.view = new FoodListView({ collection: app.foodList1 });
 
-app.FoodList1.add(app.mod3);
+app.foodList1.add(app.mod3);
+
+
+
+//simple working example for searchView, searchListView, CounterView
+app.s1 = new app.Search({
+                      name: 'search # 1',
+                      calories: 321
+                    });
+
+app.s2 = new app.Search({
+                      name: 'search # 2',
+                      calories: 10
+                    });
+
+app.s3 = new app.Search({
+                      name: 'search # 3',
+                      calories: 21
+                    });
+
+app.searchList1 = new app.SearchList([app.s1, app.s2]);
+
+app.view = new SearchListView({ collection: app.searchList1 });
+
+app.searchList1.add(app.s3);
 */
-
