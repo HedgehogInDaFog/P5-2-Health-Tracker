@@ -4,21 +4,18 @@ var FoodListView = Backbone.View.extend({
 	el:  '#eated-food-view',
 
 	initialize: function() {
+		this.counter = new CounterView({collection: this.collection});
 	    this.render();
 	    this.listenTo(this.collection, 'all', this.render);
   	},
 
 	render: function() {
 		this.$el.empty();
-		$('#counter').empty();
 
 		this.collection.each(function(foodItem) {
 			var foodItemView = new FoodView({ model: foodItem });
 			this.$el.append(foodItemView.render().el);
 		}, this);
-
-		var total = this.collection.totalCalories();
-		$('#counter').append(total);
 
 		return this;
 	}
@@ -35,8 +32,25 @@ var FoodView = Backbone.View.extend({
 	}
 });
 
+var CounterView = Backbone.View.extend({
 
-/*simple working example
+	el:  '#counter',
+
+	initialize: function() {
+	    this.render();
+	    this.listenTo(this.collection, 'all', this.render);
+  	},
+
+	template: _.template($('#counterTemplate').html() ),
+
+	render: function() {
+		this.$el.html(this.collection.totalCalories() );
+		return this;
+	}
+});
+
+/*
+//simple working example
 app.mod1 = new app.Food({
                       name: 'Food # 1',
                       calories: 321,
