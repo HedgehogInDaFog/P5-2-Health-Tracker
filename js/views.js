@@ -81,6 +81,15 @@ var SearchView = Backbone.View.extend({
 
 	template: _.template($('#searchItemTemplate').html() ),
 
+	events: {
+		'click #add-button' : 'addItem'
+	},
+
+	addItem: function() {
+		console.log(this.model);
+		//TODO
+	},
+
 	render: function() {
 		this.$el.html( this.template(this.model.toJSON()) );
 		return this;
@@ -109,7 +118,7 @@ app.mod3 = new app.Food({
 
 app.foodList1 = new app.FoodList([app.mod1, app.mod2], {date : '27091987'});
 
-app.view = new FoodListView({ collection: app.foodList1 });
+app.foodView1 = new FoodListView({ collection: app.foodList1 });
 
 app.foodList1.add(app.mod3);
 
@@ -133,6 +142,6 @@ app.s3 = new app.Search({
 
 app.searchList1 = new app.SearchList([app.s1, app.s2]);
 
-app.view = new SearchListView({ collection: app.searchList1 });
+app.searchView = new SearchListView({ collection: app.searchList1 });
 
 app.searchList1.add(app.s3);
