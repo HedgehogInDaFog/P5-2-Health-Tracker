@@ -26,6 +26,14 @@ var FoodView = Backbone.View.extend({
 
 	template: _.template($('#foodItemTemplate').html() ),
 
+	events: {
+		'click #clear-button' : 'removeItem'
+	},
+
+	removeItem: function() {
+		this.model.destroy();
+	},
+
 	render: function() {
 		this.$el.html( this.template(this.model.toJSON()) );
 		return this;
@@ -79,7 +87,7 @@ var SearchView = Backbone.View.extend({
 	}
 });
 
-/*
+
 //simple working example for FoodView, FoodListView, CounterView
 app.mod1 = new app.Food({
                       name: 'Food # 1',
@@ -128,4 +136,3 @@ app.searchList1 = new app.SearchList([app.s1, app.s2]);
 app.view = new SearchListView({ collection: app.searchList1 });
 
 app.searchList1.add(app.s3);
-*/
