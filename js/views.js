@@ -1,3 +1,7 @@
+//1c120cc3
+//99dd94d4da2652a426b99bbfb4c3da6c
+//https://api.nutritionix.com/v1_1/search/%SEARCH%?fields=item_name%2Cnf_calories&appId=1c120cc3&appKey=99dd94d4da2652a426b99bbfb4c3da6c
+
 var app = app || {};
 
 var FoodListView = Backbone.View.extend({
@@ -96,7 +100,42 @@ var SearchView = Backbone.View.extend({
 	}
 });
 
+var appView = Backbone.View.extend({
+	el: 'body',
 
+	events: {
+		'click #search-button' : 'searchItem'
+	},
+
+	initialize: function() {
+		console.log('Starting main view');
+  	},
+
+	searchItem: function() {
+		var apiRequestTemplate = 'https://api.nutritionix.com/v1_1/search/%SEARCH%?fields=item_name%2Cnf_calories&appId=1c120cc3&appKey=99dd94d4da2652a426b99bbfb4c3da6c';
+		var searchRequest = $('.search-string').val();
+		var apiRequest = apiRequestTemplate.replace('%SEARCH%',searchRequest);
+
+		$.ajax({
+			url: apiRequest,
+			success: function(response) {
+				if (response.total_hits > 0) {
+					var rawData = response.hits;
+				}
+				console.log(rawData);
+			},
+			error: function() {
+				console.log('Error while working with API');
+			}
+		});
+	}
+});
+
+
+
+
+
+/*
 //simple working example for FoodView, FoodListView, CounterView
 app.mod1 = new app.Food({
                       name: 'Food # 1',
@@ -145,3 +184,6 @@ app.searchList1 = new app.SearchList([app.s1, app.s2]);
 app.searchView = new SearchListView({ collection: app.searchList1 });
 
 app.searchList1.add(app.s3);
+*/
+
+app.view = new appView();
