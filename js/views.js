@@ -31,7 +31,15 @@ var FoodView = Backbone.View.extend({
 	template: _.template($('#foodItemTemplate').html() ),
 
 	events: {
-		'click #clear-button' : 'removeItem'
+		'click #clear-button' : 'removeItem',
+		'click #qnt-incr' : 'incrementQnt',
+		'click #qnt-decr' : 'decrementQnt'
+	},
+
+	decrementQnt: function() {
+		this.model.attributes.quantity -= 1;
+		console.log(this.model);
+		this.render();
 	},
 
 	removeItem: function() {
@@ -109,6 +117,8 @@ var appView = Backbone.View.extend({
 
 	initialize: function() {
 		console.log('Starting main view');
+		this.foodListView = new FoodListView({collection: this.collection});
+		this.searchListView = new SearchListView({collection: new app.SearchList()});
   	},
 
 	searchItem: function() {
@@ -132,6 +142,27 @@ var appView = Backbone.View.extend({
 });
 
 
+app.mod1 = new app.Food({
+                      name: 'Food # 1',
+                      calories: 321,
+                      quantity: 2,
+                    });
+
+app.mod2 = new app.Food({
+                      name: 'Food # 2',
+                      calories: 10,
+                      quantity: 30,
+                    });
+
+app.mod3 = new app.Food({
+                      name: 'Food # 3',
+                      calories: 21,
+                      quantity: 12,
+                    });
+
+app.foodList1 = new app.FoodList([app.mod1, app.mod2, app.mod3], {date : '27022016'});
+
+app.view = new appView({collection: app.foodList1});
 
 
 
@@ -186,4 +217,3 @@ app.searchView = new SearchListView({ collection: app.searchList1 });
 app.searchList1.add(app.s3);
 */
 
-app.view = new appView();

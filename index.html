@@ -48,11 +48,10 @@
               <p class="normal-text">You've eated:</p>
             </div>
                   <div class="row">
-                    <div class="col-6"><p class="small-text">Name</p></div>
-                    <div class="col-3"><p class="small-text">ccal</p></div>
+                    <div class="col-7"><p class="small-text">Name</p></div>
+                    <div class="col-2"><p class="small-text">ccal</p></div>
                     <div class="col-1"><p class="small-text">qnt.</p></div>
-                    <div class="col-1"></div>
-                    <div class="col-1"><p class="small-text"></p></div>
+                    <div class="col-2"><p class="small-text"></p></div>
                     <hr class="col-12">
                   </div>
             <div id="eated-food-view"></div>
@@ -79,11 +78,14 @@
 
     <script id="foodItemTemplate" type="text/template">
       <div class="row">
-        <div class="col-6"><p class="small-text"><%= name %></p></div>
-        <div class="col-3"><p class="small-text"><%= calories %></p></div>
+        <div class="col-7"><p class="small-text"><%= name %></p></div>
+        <div class="col-2"><p class="small-text"><%= calories %></p></div>
         <div class="col-1"><p class="small-text"><%= quantity %></p></div>
-        <div class="col-1"></div>
-        <div class="col-1"><p class="small-text" id="clear-button">X</p></div>
+        <div class="col-2">
+          <span class="small-text" id="qnt-incr">▲</span>
+          <span class="small-text" id="qnt-decr">▼</span>
+          <span class="small-text" id="clear-button">X</span>
+        </div>
         <hr class="col-12">
       </div>
     </script>
