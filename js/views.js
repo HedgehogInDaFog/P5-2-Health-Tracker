@@ -36,10 +36,14 @@ var FoodView = Backbone.View.extend({
 		'click #qnt-decr' : 'decrementQnt'
 	},
 
+	incrementQnt: function() {
+		this.model.attributes.quantity += 1;
+		this.model.collection.trigger();
+	},
+
 	decrementQnt: function() {
 		this.model.attributes.quantity -= 1;
-		console.log(this.model);
-		this.render();
+		this.model.collection.trigger();
 	},
 
 	removeItem: function() {
