@@ -7,15 +7,35 @@ var app = app || {};
 var DateView = Backbone.View.extend({
 	el: '#date-view',
 
+	events: {
+		'click #day-fw' : function() {this.addDays(1);},
+		'click #week-fw' : function() {this.addDays(7);},
+		'click #day-back' : function() {this.addDays(-1);},
+		'click #week-back' : function() {this.addDays(-7);}
+	},
+
 	initialize: function() {
 		this.$dateField = $('#date-field')
 		this.date = new Date();
-		this.strDate = this.date.getFullYear() + '-' + (this.date.getMonth()+1) + '-' + this.date.getDate();
-		this.$dateField.append(this.strDate);
+		this.$dateField.append(this.dateToString(this.date));
+  	},
+
+  	render: function() {
+  		//this.$dateField.emtpy();
+  		this.$dateField.text(this.dateToString(this.date))
   	},
 
   	getDate: function() {
-  		return this.strDate;
+  		return this.dateToString(this.date);
+  	},
+
+  	dateToString: function(date) {
+  		return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
+  	},
+
+  	addDays: function(numberOfDays) {
+  		this.date.setDate(this.date.getDate() + numberOfDays);
+  		this.render();
   	}
 
 });
