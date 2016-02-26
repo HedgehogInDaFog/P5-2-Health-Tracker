@@ -4,6 +4,22 @@
 
 var app = app || {};
 
+var DateView = Backbone.View.extend({
+	el: '#date-view',
+
+	initialize: function() {
+		this.$dateField = $('#date-field')
+		this.date = new Date();
+		this.strDate = this.date.getFullYear() + '-' + (this.date.getMonth()+1) + '-' + this.date.getDate();
+		this.$dateField.append(this.strDate);
+  	},
+
+  	getDate: function() {
+  		return this.strDate;
+  	}
+
+});
+
 var FoodListView = Backbone.View.extend({
 	el:  '#eated-food-view',
 
@@ -120,8 +136,9 @@ var appView = Backbone.View.extend({
 	},
 
 	initialize: function() {
+		this.dateView = new DateView();
 		console.log('Starting main view');
-		this.foodListView = new FoodListView({collection: this.collection});
+		this.foodListView = new app.FoodList([], {date : this.dateView.getDate()});
 		this.searchListView = new SearchListView({collection: new app.SearchList()});
   	},
 
@@ -145,7 +162,7 @@ var appView = Backbone.View.extend({
 	}
 });
 
-
+/*
 app.mod1 = new app.Food({
                       name: 'Food # 1',
                       calories: 321,
@@ -165,8 +182,10 @@ app.mod3 = new app.Food({
                     });
 
 app.foodList1 = new app.FoodList([app.mod1, app.mod2, app.mod3], {date : '27022016'});
-
 app.view = new appView({collection: app.foodList1});
+*/
+
+app.view = new appView();
 
 
 
