@@ -160,6 +160,7 @@ var appView = Backbone.View.extend({
 		console.log('Starting main view');
 		this.foodListView = new app.FoodList([], {date : this.dateView.getDate()});
 		this.searchListView = new SearchListView({collection: new app.SearchList()});
+		self = this;
   	},
 
 	searchItem: function() {
@@ -167,13 +168,22 @@ var appView = Backbone.View.extend({
 		var searchRequest = $('.search-string').val();
 		var apiRequest = apiRequestTemplate.replace('%SEARCH%',searchRequest);
 
+		self.searchListView.collection.reset()
+
 		$.ajax({
 			url: apiRequest,
 			success: function(response) {
 				if (response.total_hits > 0) {
 					var rawData = response.hits;
+					var len = rawData.length;
+					for (var i=0; i <len; i++) {
+						self.searchListView.collection.add(new app.Search({
+	                      													name: rawData[i].fields.item_name,
+	                      													calories: rawData[i].fields.nf_calories
+	                    												})
+						);
+					}
 				}
-				console.log(rawData);
 			},
 			error: function() {
 				console.log('Error while working with API');
