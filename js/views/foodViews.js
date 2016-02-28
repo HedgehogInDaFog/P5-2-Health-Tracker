@@ -41,11 +41,12 @@ app.FoodListView = Backbone.View.extend({
 
   	changeCurrentCollection: function(collection) {
   		this.collection = collection;
-  		this.render();
+  		this.render(); //TODO check is it needed?
   	},
 
   	addItem: function(model) {
   		this.collection.add(model);
+  		this.render(); //TODO check is it needed?
   	},
 
 	render: function() {

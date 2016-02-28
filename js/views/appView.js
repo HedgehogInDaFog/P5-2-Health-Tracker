@@ -12,23 +12,35 @@ app.appView = Backbone.View.extend({
 		this.$searchString = $('.search-string');
 
 		this.dateView = new app.DateView();
-		this.foodListView = new app.FoodListView([], {date : this.dateView.getDate()});
+		this.foodListView = new app.FoodListView({collection: new app.FoodList([], {date : this.dateView.getDate()})});
 		this.searchListView = new app.SearchListView({collection: new app.SearchList()});
 
-		this.counter = new app.CounterView({collection: this.collection});
+		this.counter = new app.CounterView({collection: this.foodListView.collection});
 
 		this.listenTo(this.searchListView, 'addItem', this.addItem)
+		this.listenTo(this.dateView, 'changeDate', this.changeColletion)
 
 		self = this;
   	},
 
   	addItem: function(input) {
-  		var date = this.dateView.getDate();
-  		input.date = date;
-  		input.quantity = 1;
   		self.searchListView.collection.reset();
   		this.$searchString.val('');
+  		this.foodListView.addItem (new app.Food({
+                      name: input.name,
+                      calories: input.calories,
+                      quantity: 1,
+                    })
+  			);
 
+  	},
+
+  	changeCollection: function(date) {
+  		this.foodListView.changeCurrentCollection(this.getCollectionByDate(date));
+  	},
+
+  	getCollectionByDate(date) {
+  		return this.foodListView.collection; //TODO (!!!!!)
   	},
 
 	searchItem: function() {

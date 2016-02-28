@@ -32,6 +32,7 @@ app.DateView = Backbone.View.extend({
   	addDays: function(numberOfDays) {
   		this.date.setDate(this.date.getDate() + numberOfDays);
   		this.render();
+      this.trigger("changeDate", this.getDate());
   	}
 
 });
