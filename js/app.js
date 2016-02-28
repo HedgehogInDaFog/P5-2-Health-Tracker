@@ -1,1 +1,1 @@
-app.view = new appView();
+app.view = new app.appView();
