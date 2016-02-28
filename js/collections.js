@@ -1,12 +1,12 @@
 var app = app || {};
 
-app.FoodList = Backbone.Firebase.Collection.extend({
+app.FoodList = Backbone.Collection.extend({
 
   model: app.Food,
 
   initialize: function(models, options) {
     this.date = options.date;
-    this.url = "https://burning-heat-7242.firebaseio.com/" + this.date;
+    this.localStorage = new Backbone.LocalStorage('foodList-' + this.date);
   },
 
   totalCalories: function() {
