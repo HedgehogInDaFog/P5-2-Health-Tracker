@@ -160,6 +160,9 @@ var appView = Backbone.View.extend({
 	},
 
 	initialize: function() {
+
+		this.$searchString = $('.search-string');
+
 		this.dateView = new DateView();
 		this.foodListView = new app.FoodList([], {date : this.dateView.getDate()});
 		this.searchListView = new SearchListView({collection: new app.SearchList()});
@@ -174,14 +177,16 @@ var appView = Backbone.View.extend({
   		input.date = date;
   		input.quantity = 1;
   		console.log(input);
+  		self.searchListView.collection.reset();
+  		this.$searchString.val('');
   	},
 
 	searchItem: function() {
 		var apiRequestTemplate = 'https://api.nutritionix.com/v1_1/search/%SEARCH%?fields=item_name%2Cnf_calories&appId=1c120cc3&appKey=99dd94d4da2652a426b99bbfb4c3da6c';
-		var searchRequest = $('.search-string').val();
+		var searchRequest = this.$searchString.val();
 		var apiRequest = apiRequestTemplate.replace('%SEARCH%',searchRequest);
 
-		self.searchListView.collection.reset()
+		self.searchListView.collection.reset();
 
 		$.ajax({
 			url: apiRequest,
