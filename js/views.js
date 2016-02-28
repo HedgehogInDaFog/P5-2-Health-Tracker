@@ -116,11 +116,16 @@ var SearchListView = Backbone.View.extend({
 	    this.listenTo(this.collection, 'all', this.render);
   	},
 
+  	addItem: function(input) {
+  		this.trigger("addItem", input);
+  	},
+
 	render: function() {
 		this.$el.empty();
 
 		this.collection.each(function(searchItem) {
 			var searchItemView = new SearchView({ model: searchItem });
+			this.listenTo(searchItemView, 'addItem', this.addItem)
 			this.$el.append(searchItemView.render().el);
 		}, this);
 
@@ -138,8 +143,7 @@ var SearchView = Backbone.View.extend({
 	},
 
 	addItem: function() {
-		console.log(this.model);
-		//TODO
+		this.trigger("addItem", this.model.attributes);
 	},
 
 	render: function() {
@@ -157,10 +161,19 @@ var appView = Backbone.View.extend({
 
 	initialize: function() {
 		this.dateView = new DateView();
-		console.log('Starting main view');
 		this.foodListView = new app.FoodList([], {date : this.dateView.getDate()});
 		this.searchListView = new SearchListView({collection: new app.SearchList()});
+
+		this.listenTo(this.searchListView, 'addItem', this.addItem)
+
 		self = this;
+  	},
+
+  	addItem: function(input) {
+  		var date = this.dateView.getDate();
+  		input.date = date;
+  		input.quantity = 1;
+  		console.log(input);
   	},
 
 	searchItem: function() {
