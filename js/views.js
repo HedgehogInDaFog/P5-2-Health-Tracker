@@ -164,7 +164,7 @@ var appView = Backbone.View.extend({
 		this.$searchString = $('.search-string');
 
 		this.dateView = new DateView();
-		this.foodListView = new app.FoodList([], {date : this.dateView.getDate()});
+		this.foodListView = new FoodListView([], {date : this.dateView.getDate()});
 		this.searchListView = new SearchListView({collection: new app.SearchList()});
 
 		this.listenTo(this.searchListView, 'addItem', this.addItem)
@@ -176,9 +176,9 @@ var appView = Backbone.View.extend({
   		var date = this.dateView.getDate();
   		input.date = date;
   		input.quantity = 1;
-  		console.log(input);
   		self.searchListView.collection.reset();
   		this.$searchString.val('');
+
   	},
 
 	searchItem: function() {
@@ -233,7 +233,7 @@ app.foodList1 = new app.FoodList([app.mod1, app.mod2, app.mod3], {date : '270220
 app.view = new appView({collection: app.foodList1});
 */
 
-app.view = new appView();
+
 
 
 
@@ -262,29 +262,3 @@ app.foodList1 = new app.FoodList([app.mod1, app.mod2], {date : '27091987'});
 app.foodView1 = new FoodListView({ collection: app.foodList1 });
 
 app.foodList1.add(app.mod3);
-
-
-
-//simple working example for searchView, searchListView, CounterView
-app.s1 = new app.Search({
-                      name: 'search # 1',
-                      calories: 321
-                    });
-
-app.s2 = new app.Search({
-                      name: 'search # 2',
-                      calories: 10
-                    });
-
-app.s3 = new app.Search({
-                      name: 'search # 3',
-                      calories: 21
-                    });
-
-app.searchList1 = new app.SearchList([app.s1, app.s2]);
-
-app.searchView = new SearchListView({ collection: app.searchList1 });
-
-app.searchList1.add(app.s3);
-*/
-
