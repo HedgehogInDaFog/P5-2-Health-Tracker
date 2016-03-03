@@ -14,6 +14,7 @@ app.FoodList = Backbone.Collection.extend({
     var len = this.models.length;
     for (var i=0; i<len; i++) {
       sum += this.models[i].get('calories')*this.models[i].get('quantity');
+      sum = Math.round(sum);
     }
     return sum;
   }
