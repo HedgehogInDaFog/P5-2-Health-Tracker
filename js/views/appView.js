@@ -12,7 +12,11 @@ app.appView = Backbone.View.extend({
 		this.$searchString = $('.search-string');
 
 		this.dateView = new app.DateView();
-		this.foodListView = new app.FoodListView({collection: new app.FoodList([], {date : this.dateView.getDate()})});
+
+    this.foodCollections = {};
+    this.foodCollections[this.dateView.getDate()] = new app.FoodList([], {date : this.dateView.getDate()});
+
+		this.foodListView = new app.FoodListView({collection: this.foodCollections[this.dateView.getDate()]});
 		this.searchListView = new app.SearchListView({collection: new app.SearchList()});
 
     this.foodListView.collection.fetch();
