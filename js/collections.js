@@ -23,23 +23,3 @@ app.FoodList = Backbone.Collection.extend({
 app.SearchList = Backbone.Collection.extend({
   model: app.Search,
 });
-
-
-
-/*simple working example
-var mod1 = new app.Food();
-var mod2 = new app.Food({
-                      name: '1',
-                      calories: 10,
-                      quantity: 30,
-                    });
-var mod3 = new app.Food();
-app.FoodList1 = new app.FoodList([mod1, mod2], {date : '27091987'});
-console.log(JSON.stringify(app.FoodList1.toJSON()));
-
-app.FoodList1.add(mod3);
-console.log(JSON.stringify(app.FoodList1.toJSON()));
-
-console.log(app.FoodList1.url);
-console.log(app.FoodList1.totalCalories());
-*/
