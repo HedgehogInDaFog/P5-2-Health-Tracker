@@ -11,6 +11,7 @@ app.SearchView = Backbone.View.extend({
 
 	addItem: function() {
 		this.trigger("addItem", this.model.attributes);
+		this.model.destroy();
 	},
 
 	render: function() {

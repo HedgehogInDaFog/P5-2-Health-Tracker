@@ -24,7 +24,6 @@ app.appView = Backbone.View.extend({
   	},
 
   	addItem: function(input) {
-  		self.searchListView.collection.reset();
   		this.$searchString.val('');
   		this.foodListView.addItem (new app.Food({
                       name: input.name,
