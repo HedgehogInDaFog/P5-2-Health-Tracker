@@ -17,8 +17,10 @@ app.FoodView = Backbone.View.extend({
 	},
 
 	decrementQnt: function() {
-		this.model.attributes.quantity -= 1;
-		this.model.collection.trigger();
+		if (this.model.attributes.quantity > 0) {
+			this.model.attributes.quantity -= 1;
+			this.model.collection.trigger();
+		}
 	},
 
 	removeItem: function() {
