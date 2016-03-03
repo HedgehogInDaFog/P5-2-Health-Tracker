@@ -44,9 +44,9 @@ app.FoodListView = Backbone.View.extend({
   	},
 
   	changeCurrentCollection: function(collection) {
-  		console.log(collection);
   		this.collection = collection;
   		this.collection.fetch();
+  		this.listenTo(this.collection, 'all', this.render);
   		this.render(); //TODO check is it needed?
   	},
 

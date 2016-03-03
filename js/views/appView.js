@@ -24,7 +24,7 @@ app.appView = Backbone.View.extend({
     this.counter = new app.CounterView({collection: this.foodListView.collection});
 
     this.listenTo(this.searchListView, 'addItem', this.addItem)
-    this.listenTo(this.dateView, 'changeDate', this.changeCollection)
+    this.listenTo(this.dateView, 'changeDate', this.changeCurrentCollection)
 
     self = this;
     },
@@ -39,12 +39,10 @@ app.appView = Backbone.View.extend({
         );
     },
 
-    changeCollection: function(currentDate) {
+    changeCurrentCollection: function(currentDate) {
         var currentCollection = this.getCollectionByDate(currentDate)
         this.foodListView.changeCurrentCollection(currentCollection);
-
-        this.counter.collection = currentCollection;
-        this.counter.render();
+        this.counter.changeCurrentCollection(currentCollection);
     },
 
     getCollectionByDate: function(currentDate) {

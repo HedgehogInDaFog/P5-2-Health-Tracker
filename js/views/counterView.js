@@ -9,6 +9,13 @@ app.CounterView = Backbone.View.extend({
 	    this.listenTo(this.collection, 'all', this.render);
   	},
 
+  	changeCurrentCollection: function(collection) {
+  		this.collection = collection;
+  		//this.collection.fetch();
+  		this.listenTo(this.collection, 'all', this.render);
+  		this.render(); //TODO check is it needed?
+  	},
+
 	render: function() {
 		if (this.collection) {
 			this.$el.html(this.collection.totalCalories() );
