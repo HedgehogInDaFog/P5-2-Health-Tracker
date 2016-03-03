@@ -68,7 +68,7 @@ app.appView = Backbone.View.extend({
                     for (var i=0; i <len; i++) {
                         self.searchListView.collection.add(new app.Search({
                                                                             name: rawData[i].fields.item_name,
-                                                                            calories: rawData[i].fields.nf_calories
+                                                                            calories: Math.round(rawData[i].fields.nf_calories)
                                                                         })
                         );
                     }
