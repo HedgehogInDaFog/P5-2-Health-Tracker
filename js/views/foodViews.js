@@ -48,6 +48,7 @@ app.FoodListView = Backbone.View.extend({
 
   	addItem: function(model) {
   		this.collection.add(model);
+  		model.save();
   		this.render(); //TODO check is it needed?
   	},
 

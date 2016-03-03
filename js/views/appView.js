@@ -15,6 +15,8 @@ app.appView = Backbone.View.extend({
 		this.foodListView = new app.FoodListView({collection: new app.FoodList([], {date : this.dateView.getDate()})});
 		this.searchListView = new app.SearchListView({collection: new app.SearchList()});
 
+    this.foodListView.collection.fetch();
+
 		this.counter = new app.CounterView({collection: this.foodListView.collection});
 
 		this.listenTo(this.searchListView, 'addItem', this.addItem)
@@ -23,24 +25,23 @@ app.appView = Backbone.View.extend({
 		self = this;
   	},
 
-  	addItem: function(input) {
-  		this.$searchString.val('');
-  		this.foodListView.addItem (new app.Food({
-                      name: input.name,
-                      calories: input.calories,
-                      quantity: 1,
-                    })
-  			);
+	addItem: function(input) {
+		this.$searchString.val('');
+		this.foodListView.addItem (new app.Food({
+                    name: input.name,
+                    calories: input.calories,
+                    quantity: 1,
+                  })
+			);
+	},
 
-  	},
+	changeCollection: function(date) {
+		this.foodListView.changeCurrentCollection(this.getCollectionByDate(date));
+	},
 
-  	changeCollection: function(date) {
-  		this.foodListView.changeCurrentCollection(this.getCollectionByDate(date));
-  	},
-
-  	getCollectionByDate(date) {
-  		return this.foodListView.collection; //TODO (!!!!!)
-  	},
+	getCollectionByDate: function(date) {
+		return this.foodListView.collection; //TODO (!!!!!)
+	},
 
 	searchItem: function() {
 		var apiRequestTemplate = 'https://api.nutritionix.com/v1_1/search/%SEARCH%?fields=item_name%2Cnf_calories&appId=1c120cc3&appKey=99dd94d4da2652a426b99bbfb4c3da6c';
