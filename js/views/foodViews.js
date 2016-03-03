@@ -13,12 +13,14 @@ app.FoodView = Backbone.View.extend({
 
 	incrementQnt: function() {
 		this.model.attributes.quantity += 1;
+		this.model.save();
 		this.model.collection.trigger();
 	},
 
 	decrementQnt: function() {
 		if (this.model.attributes.quantity > 0) {
 			this.model.attributes.quantity -= 1;
+			this.model.save();
 			this.model.collection.trigger();
 		}
 	},
