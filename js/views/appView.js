@@ -58,7 +58,7 @@ app.appView = Backbone.View.extend({
     },
 
     searchItem: function() {
-        var apiRequestTemplate = 'https://apie.nutritionix.com/v1_1/search/%SEARCH%?fields=item_name%2Cnf_calories&appId=1c120cc3&appKey=99dd94d4da2652a426b99bbfb4c3da6c';
+        var apiRequestTemplate = 'https://api.nutritionix.com/v1_1/search/%SEARCH%?fields=item_name%2Cnf_calories&appId=1c120cc3&appKey=99dd94d4da2652a426b99bbfb4c3da6c';
         var searchRequest = this.$searchString.val();
         var apiRequest = apiRequestTemplate.replace('%SEARCH%',searchRequest);
 
