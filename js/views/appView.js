@@ -3,6 +3,8 @@ var app = app || {};
 app.appView = Backbone.View.extend({
     el: 'body',
 
+    template: _.template($('#loadingFailedTemplate').html() ),
+
     events: {
         'click #search-button' : 'searchItem'
     },
@@ -10,6 +12,9 @@ app.appView = Backbone.View.extend({
     initialize: function() {
 
     this.$searchString = $('.search-string');
+    this.$searchView = $('#search-view');
+    console.log($('#search-view'));
+    console.log(this.$searchView);
 
     this.dateView = new app.DateView();
 
@@ -60,7 +65,7 @@ app.appView = Backbone.View.extend({
         self.searchListView.collection.reset();
 
         var apiRequestTimeout = setTimeout(function() {
-                alert('Failed to get data from Nutritionix API. Please try again later');
+                self.$searchView.html(self.template);
             }, 8000);
 
         $.ajax({
@@ -81,7 +86,7 @@ app.appView = Backbone.View.extend({
             },
             error: function() {
                 clearTimeout(apiRequestTimeout);
-                alert('Failed to get data from Nutritionix API. Please try again later');
+                self.$searchView.html(self.template);
             }
         });
     }
