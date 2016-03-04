@@ -53,15 +53,20 @@ app.appView = Backbone.View.extend({
     },
 
     searchItem: function() {
-        var apiRequestTemplate = 'https://api.nutritionix.com/v1_1/search/%SEARCH%?fields=item_name%2Cnf_calories&appId=1c120cc3&appKey=99dd94d4da2652a426b99bbfb4c3da6c';
+        var apiRequestTemplate = 'https://apie.nutritionix.com/v1_1/search/%SEARCH%?fields=item_name%2Cnf_calories&appId=1c120cc3&appKey=99dd94d4da2652a426b99bbfb4c3da6c';
         var searchRequest = this.$searchString.val();
         var apiRequest = apiRequestTemplate.replace('%SEARCH%',searchRequest);
 
         self.searchListView.collection.reset();
 
+        var apiRequestTimeout = setTimeout(function() {
+                alert('Failed to get data from Nutritionix API. Please try again later');
+            }, 8000);
+
         $.ajax({
             url: apiRequest,
             success: function(response) {
+                clearTimeout(apiRequestTimeout);
                 if (response.total_hits > 0) {
                     var rawData = response.hits;
                     var len = rawData.length;
@@ -75,7 +80,8 @@ app.appView = Backbone.View.extend({
                 }
             },
             error: function() {
-                console.log('Error while working with API');
+                clearTimeout(apiRequestTimeout);
+                alert('Failed to get data from Nutritionix API. Please try again later');
             }
         });
     }
