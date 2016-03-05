@@ -56,6 +56,10 @@
                   </div>
             <div class="eated-food-view"></div>
           </div>
+          <div class="row center">
+            <p class="normal-text">Current statistics:</p>
+            <div class="statistics-view"></div>
+          </div>
         </div>
         <div class="col-1 fw-for-narrow"></div>
         <div class="col-5 fw-for-narrow">
@@ -138,6 +142,17 @@
       </div>
     </script>
 
+    <script id="statisticsTemplate" type="text/template">
+      <div class="row">
+        <div class="col-4"><p class="small-text"><%= name %>:</p></div>
+        <div class="col-1"></div>
+        <div class="col-3"><p class="small-text"><%= calories %> kcal</p></div>
+        <div class="col-1"></div>
+        <div class="col-3"><p class="small-text"><%= date %></p></div>
+        <hr class="col-12">
+      </div>
+    </script>
+
     <script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
     <script src="js/libs/jquery.min.js" type="text/javascript"></script>
     <script src="js/libs/underscore-min.js" type="text/javascript"></script>
@@ -150,6 +165,7 @@
     <script src="js/views/counterView.js" type="text/javascript"></script>
     <script src="js/views/foodViews.js" type="text/javascript"></script>
     <script src="js/views/searchViews.js" type="text/javascript"></script>
+    <script src="js/views/statsViews.js" type="text/javascript"></script>
     <script src="js/views/appView.js" type="text/javascript"></script>
     <script src="js/app.js" type="text/javascript"></script>
   </body>

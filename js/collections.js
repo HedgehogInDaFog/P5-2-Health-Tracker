@@ -24,3 +24,7 @@ app.FoodList = Backbone.Collection.extend({
 app.SearchList = Backbone.Collection.extend({
   model: app.Search,
 });
+
+app.StatList = Backbone.Collection.extend({
+  model: app.Stat,
+});

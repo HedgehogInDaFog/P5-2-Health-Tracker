@@ -21,6 +21,7 @@ app.appView = Backbone.View.extend({
     this.$foodKcalString = $('.food-kcal-input');
     this.$searchString = $('.search-string');
     this.$searchView = $('.search-view');
+    this.$statView = $('.statistics-view');
 
     this.dateView = new app.DateView();
 
@@ -29,6 +30,7 @@ app.appView = Backbone.View.extend({
 
     this.foodListView = new app.FoodListView({collection: this.foodCollections[this.dateView.getDate()]});
     this.searchListView = new app.SearchListView({collection: new app.SearchList()});
+    this.statListView = new app.StatListView({collection: new app.StatList()});
 
     this.foodListView.collection.fetch();
 
@@ -36,6 +38,8 @@ app.appView = Backbone.View.extend({
 
     this.listenTo(this.searchListView, 'addItem', this.addItem)
     this.listenTo(this.dateView, 'changeDate', this.changeCurrentCollection)
+
+    this.initStatCollection(); //TODO
 
     self = this;
     },
@@ -65,6 +69,34 @@ app.appView = Backbone.View.extend({
         var currentCollection = this.getCollectionByDate(currentDate)
         this.foodListView.changeCurrentCollection(currentCollection);
         this.counter.changeCurrentCollection(currentCollection);
+    },
+
+    countStats: function() {
+        return true; //TODO
+    },
+
+    initStatCollection: function() {
+        var models = [];
+        models.push(new app.Stat({
+                                name: 'Max per day',
+                                calories: 0,
+                                date: ''
+                                }
+        ));
+
+        models.push(new app.Stat({
+                                name: 'Min per day',
+                                calories: 0,
+                                date: ''
+                                }
+        ));
+
+        models.push(new app.Stat({
+                                name: 'Average per day',
+                                calories: 0,
+                                date: 'N/A'
+                                }
+        ));
     },
 
     getCollectionByDate: function(currentDate) {

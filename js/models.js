@@ -14,3 +14,11 @@ app.Search = Backbone.Model.extend({
     calories: 0
   }
 });
+
+app.Stat = Backbone.Model.extend({
+  defaults: {
+    name: '',
+    calories: 0,
+    date: ''
+  }
+});
