@@ -81,6 +81,7 @@
     color: white;
     text-align: center;
     border-radius: 0px;
+    cursor: pointer;
 }
 
 #counter {
@@ -132,6 +133,7 @@
     background-color: #000035;
     color: white;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .small-text {
@@ -148,6 +150,12 @@
 
 #search-view {
     width: 100%;
+}
+
+#qnt-incr,
+#qnt-decr,
+#clear-button {
+    cursor: pointer;
 }
 
 h1 {
