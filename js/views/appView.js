@@ -5,6 +5,8 @@ app.appView = Backbone.View.extend({
 
     template: _.template($('#loadingFailedTemplate').html() ),
 
+    templateLoading: _.template($('#loadingIndicator').html() ),
+
     events: {
         'click #search-button' : 'searchItem'
     },
@@ -63,6 +65,7 @@ app.appView = Backbone.View.extend({
         var apiRequest = apiRequestTemplate.replace('%SEARCH%',searchRequest);
 
         self.searchListView.collection.reset();
+        self.$searchView.html(self.templateLoading);
 
         var apiRequestTimeout = setTimeout(function() {
                 self.$searchView.html(self.template);
