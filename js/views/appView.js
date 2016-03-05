@@ -9,11 +9,14 @@ app.appView = Backbone.View.extend({
 
     events: {
         'click #search-button' : 'searchItem',
+        'click .add-manually-button' : 'addManually',
         'keyup .search-string' : 'keyPressEventHandler'
     },
 
     initialize: function() {
 
+    this.$foodNameString = $('.food-name-input');
+    this.$foodKcalString = $('.food-kcal-input');
     this.$searchString = $('.search-string');
     this.$searchView = $('#search-view');
     console.log($('#search-view'));
@@ -45,6 +48,17 @@ app.appView = Backbone.View.extend({
                     quantity: 1,
                     })
         );
+    },
+
+    addManually: function() {
+        this.foodListView.addItem (new app.Food({
+                    name: this.$foodNameString.val(),
+                    calories: this.$foodKcalString.val(),
+                    quantity: 1,
+                    })
+        );
+        this.$foodNameString.val('');
+        this.$foodKcalString.val('');
     },
 
     changeCurrentCollection: function(currentDate) {

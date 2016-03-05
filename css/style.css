@@ -84,6 +84,10 @@
     cursor: pointer;
 }
 
+.margin-top {
+    margin-top: 50px;
+}
+
 .date {
     font-weight: bold;
     font-size: 22px;
@@ -114,7 +118,9 @@
     text-align: left;
 }
 
-.search-string {
+.search-string,
+.food-name-input,
+.food-kcal-input {
     font-size: 20px;
     padding-left: 15px;
     width: 100%;
@@ -185,7 +191,9 @@ h1 {
 
     .normal-text,
     .date,
-    .search-string {
+    .search-string,
+    .food-name-input,
+    .food-kcal-input  {
         font-size: 1.6vw;
     }
 
@@ -212,7 +220,9 @@ h1 {
 
     .normal-text,
     .date,
-    .search-string {
+    .search-string,
+    .food-name-input,
+    .food-kcal-input  {
         font-size: 1.8vw;
     }
 
@@ -238,7 +248,9 @@ h1 {
     }
 
     .normal-text,
-    .search-string {
+    .search-string,
+    .food-name-input,
+    .food-kcal-input  {
         font-size: 2.6vw;
     }
 
