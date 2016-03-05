@@ -84,14 +84,6 @@
     cursor: pointer;
 }
 
-#counter {
-    font-size: 28px;
-    background-color: white;
-    color: #000035;
-    margin: 10px auto;
-    font-weight: bold;
-}
-
 .date {
     font-weight: bold;
     font-size: 22px;
@@ -144,6 +136,14 @@
     text-align: left;
 }
 
+#counter {
+    font-size: 28px;
+    background-color: white;
+    color: #000035;
+    margin: 10px auto;
+    font-weight: bold;
+}
+
 #eated-food-view {
     width: 100%;
 }
@@ -152,9 +152,9 @@
     width: 100%;
 }
 
-#qnt-incr,
+#clear-button,
 #qnt-decr,
-#clear-button {
+#qnt-incr  {
     cursor: pointer;
 }
 
@@ -246,6 +246,7 @@ h1 {
         width: 90%;
         margin-left: auto;
         margin-right: auto;
+        min-height: 30px;
     }
 
     .date,
