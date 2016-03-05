@@ -19,26 +19,26 @@
       </div>
       <div class="row">
         <div class="col-5 fw-for-narrow">
-          <div class="row center" id="date-view">
+          <div class="row center date-view">
             <div class="col-2 lr-margins">
-              <p class="small-button" id="week-back">◀◀◀</p>
+              <p class="small-button week-back">◀◀◀</p>
             </div>
             <div class="col-1">
-              <p class="small-button" id="day-back">◀</p>
+              <p class="small-button day-back">◀</p>
             </div>
             <div class="col-4 date">
-              <p  class="date" id="date-field"> </p>
+              <p  class="date date-field"> </p>
             </div>
             <div class="col-1">
-              <p class="small-button" id="day-fw">▶</p>
+              <p class="small-button day-fw">▶</p>
             </div>
             <div class="col-2 lr-margins">
-              <p class="small-button" id="week-fw">▶▶▶</p>
+              <p class="small-button week-fw">▶▶▶</p>
             </div>
             <div class="row center">
               <div class="col-4"></div>
               <div class="col-4">
-                <p id="counter"></p>
+                <p class="counter"></p>
               </div>
               <div class="col-4">
                 <p class="normal-text">kcal</p>
@@ -54,7 +54,7 @@
                     <div class="col-2"><p class="small-text"></p></div>
                     <hr class="col-12">
                   </div>
-            <div id="eated-food-view"></div>
+            <div class="eated-food-view"></div>
           </div>
         </div>
         <div class="col-1 fw-for-narrow"></div>
@@ -65,7 +65,7 @@
             </div>
             <div class="col-1"></div>
             <div class="col-3">
-              <div class='button' id='search-button'>Search</div>
+              <div class='button search-button'>Search</div>
             </div>
           </div>
           <div class="row">
@@ -77,7 +77,7 @@
               <div class="col-1"><p class="small-text"></p></div>
               <hr class="col-12">
             </div>
-            <div id="search-view"></div>
+            <div class="search-view"></div>
           </div>
           <div class="row margin-top">
             <p class="normal-text">Can't find via search? Add manually:</p>
@@ -94,7 +94,6 @@
                 <div class='button add-manually-button'>Add</div>
               </div>
             </div>
-            <div id="search-view"></div>
           </div>
         </div>
       </div>
@@ -106,9 +105,9 @@
         <div class="col-2"><p class="small-text"><%= calories %></p></div>
         <div class="col-1"><p class="small-text"><%= quantity %></p></div>
         <div class="col-2">
-          <span class="small-text" id="qnt-incr">▲</span>
-          <span class="small-text" id="qnt-decr">▼</span>
-          <span class="small-text" id="clear-button">X</span>
+          <span class="small-text qnt-incr">▲</span>
+          <span class="small-text qnt-decr">▼</span>
+          <span class="small-text clear-button">X</span>
         </div>
         <hr class="col-12">
       </div>
@@ -120,7 +119,7 @@
         <div class="col-1"></div>
         <div class="col-3"><p class="small-text"><%= calories %></p></div>
         <div class="col-1"></div>
-        <div class="col-1"><p class="small-button" id="add-button">Add</p></div>
+        <div class="col-1"><p class="small-button add-button">Add</p></div>
         <hr class="col-12">
       </div>
     </script>

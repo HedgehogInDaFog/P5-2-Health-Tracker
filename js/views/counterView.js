@@ -2,7 +2,7 @@ var app = app || {};
 
 app.CounterView = Backbone.View.extend({
 
-	el:  '#counter',
+	el:  '.counter',
 
 	initialize: function() {
 	    this.render();
@@ -11,7 +11,6 @@ app.CounterView = Backbone.View.extend({
 
   	changeCurrentCollection: function(collection) {
   		this.collection = collection;
-  		//this.collection.fetch();
   		this.listenTo(this.collection, 'all', this.render);
   		this.render(); //TODO check is it needed?
   	},

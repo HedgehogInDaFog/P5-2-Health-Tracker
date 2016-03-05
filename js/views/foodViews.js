@@ -6,9 +6,9 @@ app.FoodView = Backbone.View.extend({
 	template: _.template($('#foodItemTemplate').html() ),
 
 	events: {
-		'click #clear-button' : 'removeItem',
-		'click #qnt-incr' : 'incrementQnt',
-		'click #qnt-decr' : 'decrementQnt'
+		'click .clear-button' : 'removeItem',
+		'click .qnt-incr' : 'incrementQnt',
+		'click .qnt-decr' : 'decrementQnt'
 	},
 
 	incrementQnt: function() {
@@ -36,7 +36,7 @@ app.FoodView = Backbone.View.extend({
 });
 
 app.FoodListView = Backbone.View.extend({
-	el:  '#eated-food-view',
+	el:  '.eated-food-view',
 
 	initialize: function() {
 	    this.render();

@@ -6,7 +6,7 @@ app.SearchView = Backbone.View.extend({
 	template: _.template($('#searchItemTemplate').html() ),
 
 	events: {
-		'click #add-button' : 'addItem'
+		'click .add-button' : 'addItem'
 	},
 
 	addItem: function() {
@@ -21,7 +21,7 @@ app.SearchView = Backbone.View.extend({
 });
 
 app.SearchListView = Backbone.View.extend({
-	el:  '#search-view',
+	el:  '.search-view',
 
 	initialize: function() {
 	    this.render();

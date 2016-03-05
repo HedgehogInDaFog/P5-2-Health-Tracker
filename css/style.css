@@ -84,8 +84,12 @@
     cursor: pointer;
 }
 
-.margin-top {
-    margin-top: 50px;
+.counter {
+    font-size: 28px;
+    background-color: white;
+    color: #000035;
+    margin: 10px auto;
+    font-weight: bold;
 }
 
 .date {
@@ -110,6 +114,10 @@
     margin-right: 10px;
 }
 
+.margin-top {
+    margin-top: 50px;
+}
+
 .normal-text {
     font-size: 20px;
     color: #000035;
@@ -118,13 +126,12 @@
     text-align: left;
 }
 
-.search-string,
+.food-kcal-input,
 .food-name-input,
-.food-kcal-input {
+.search-string {
     font-size: 20px;
     padding-left: 15px;
     width: 100%;
-
 }
 
 .small-button {
@@ -142,25 +149,17 @@
     text-align: left;
 }
 
-#counter {
-    font-size: 28px;
-    background-color: white;
-    color: #000035;
-    margin: 10px auto;
-    font-weight: bold;
-}
-
-#eated-food-view {
+.eated-food-view {
     width: 100%;
 }
 
-#search-view {
+.search-view {
     width: 100%;
 }
 
-#clear-button,
-#qnt-decr,
-#qnt-incr  {
+.clear-button,
+.qnt-decr,
+.qnt-incr  {
     cursor: pointer;
 }
 
@@ -197,7 +196,7 @@ h1 {
         font-size: 1.6vw;
     }
 
-    #counter {
+    .counter {
         font-size: 2.1vw;
     }
 }
@@ -226,7 +225,7 @@ h1 {
         font-size: 1.8vw;
     }
 
-    #counter {
+    .counter {
         font-size: 2.3vw;
     }
 }
@@ -262,7 +261,7 @@ h1 {
     }
 
     .date,
-    #counter {
+    .counter {
         font-size: 3.1vw;
     }
 }

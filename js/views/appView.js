@@ -8,7 +8,7 @@ app.appView = Backbone.View.extend({
     templateLoading: _.template($('#loadingIndicator').html() ),
 
     events: {
-        'click #search-button' : 'searchItem',
+        'click .search-button' : 'searchItem',
         'click .add-manually-button' : 'addManually',
         'keyup .search-string' : 'keyPressEventHandler'
     },
@@ -18,9 +18,7 @@ app.appView = Backbone.View.extend({
     this.$foodNameString = $('.food-name-input');
     this.$foodKcalString = $('.food-kcal-input');
     this.$searchString = $('.search-string');
-    this.$searchView = $('#search-view');
-    console.log($('#search-view'));
-    console.log(this.$searchView);
+    this.$searchView = $('.search-view');
 
     this.dateView = new app.DateView();
 
