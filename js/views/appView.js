@@ -10,7 +10,9 @@ app.appView = Backbone.View.extend({
     events: {
         'click .search-button' : 'searchItem',
         'click .add-manually-button' : 'addManually',
-        'keyup .search-string' : 'keyPressEventHandler'
+        'keyup .search-string' : 'keyPressSearch',
+        'keyup .food-name-input' : 'keyPressAdd',
+        'keyup .food-kcal-input' : 'keyPressAdd'
     },
 
     initialize: function() {
@@ -73,9 +75,15 @@ app.appView = Backbone.View.extend({
         return this.foodCollections[currentDate];
     },
 
-    keyPressEventHandler: function(e) {
+    keyPressSearch: function(e) {
         if(e.keyCode == 13) {
             self.searchItem();
+        }
+    },
+
+    keyPressAdd: function(e) {
+        if(e.keyCode == 13) {
+            self.addManually();
         }
     },
 
