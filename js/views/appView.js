@@ -8,7 +8,8 @@ app.appView = Backbone.View.extend({
     templateLoading: _.template($('#loadingIndicator').html() ),
 
     events: {
-        'click #search-button' : 'searchItem'
+        'click #search-button' : 'searchItem',
+        'keyup .search-string' : 'keyPressEventHandler'
     },
 
     initialize: function() {
@@ -53,10 +54,17 @@ app.appView = Backbone.View.extend({
     },
 
     getCollectionByDate: function(currentDate) {
-    if (!this.foodCollections[currentDate]) {
-      this.foodCollections[currentDate] = new app.FoodList([], {date : currentDate});
-    }
-    return this.foodCollections[currentDate];
+        if (!this.foodCollections[currentDate]) {
+          this.foodCollections[currentDate] = new app.FoodList([], {date : currentDate});
+        }
+
+        return this.foodCollections[currentDate];
+    },
+
+    keyPressEventHandler: function(e) {
+        if(e.keyCode == 13) {
+            self.searchItem();
+        }
     },
 
     searchItem: function() {
