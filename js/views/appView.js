@@ -30,7 +30,7 @@ app.appView = Backbone.View.extend({
 
     this.foodListView = new app.FoodListView({collection: this.foodCollections[this.dateView.getDate()]});
     this.searchListView = new app.SearchListView({collection: new app.SearchList()});
-    this.statListView = new app.StatListView({collection: new app.StatList()});
+    this.statListView = new app.StatListView({collection: this.initStatCollection()});
 
     this.foodListView.collection.fetch();
 
@@ -39,7 +39,9 @@ app.appView = Backbone.View.extend({
     this.listenTo(this.searchListView, 'addItem', this.addItem)
     this.listenTo(this.dateView, 'changeDate', this.changeCurrentCollection)
 
-    this.initStatCollection(); //TODO
+    this.countStats();
+
+    console.log(this.statListView.collection);
 
     self = this;
     },
@@ -78,25 +80,30 @@ app.appView = Backbone.View.extend({
     initStatCollection: function() {
         var models = [];
         models.push(new app.Stat({
-                                name: 'Max per day',
+                                name: 'Max per day (this month)',
                                 calories: 0,
                                 date: ''
                                 }
         ));
 
         models.push(new app.Stat({
-                                name: 'Min per day',
+                                name: 'Min per day (this month)',
                                 calories: 0,
                                 date: ''
                                 }
         ));
 
         models.push(new app.Stat({
-                                name: 'Average per day',
+                                name: 'Average per day (this month)',
                                 calories: 0,
                                 date: 'N/A'
                                 }
         ));
+
+        var collection = new app.StatList();
+        collection.add(models);
+
+        return collection;
     },
 
     getCollectionByDate: function(currentDate) {
