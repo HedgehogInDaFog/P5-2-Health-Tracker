@@ -37,7 +37,7 @@ app.SearchListView = Backbone.View.extend({
 
 		this.collection.each(function(searchItem) {
 			var searchItemView = new app.SearchView({ model: searchItem });
-			this.listenTo(searchItemView, 'addItem', this.addItem)
+			this.listenTo(searchItemView, 'addItem', this.addItem);
 			this.$el.append(searchItemView.render().el);
 		}, this);
 

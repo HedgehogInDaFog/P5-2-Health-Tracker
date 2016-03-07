@@ -36,12 +36,11 @@ app.appView = Backbone.View.extend({
 
     this.counter = new app.CounterView({collection: this.foodListView.collection});
 
-    this.listenTo(this.searchListView, 'addItem', this.addItem)
-    this.listenTo(this.dateView, 'changeDate', this.changeCurrentCollection)
+    this.listenTo(this.searchListView, 'addItem', this.addItem);
+    this.listenTo(this.dateView, 'changeDate', this.changeCurrentCollection);
+    this.listenTo(this.foodListView, 'countStats', this.countStats)
 
     this.countStats();
-
-    console.log(this.statListView.collection);
 
     self = this;
     },
@@ -54,6 +53,8 @@ app.appView = Backbone.View.extend({
                     quantity: 1,
                     })
         );
+
+        self.countStats();
     },
 
     addManually: function() {
@@ -65,6 +66,8 @@ app.appView = Backbone.View.extend({
         );
         this.$foodNameString.val('');
         this.$foodKcalString.val('');
+
+        self.countStats();
     },
 
     changeCurrentCollection: function(currentDate) {

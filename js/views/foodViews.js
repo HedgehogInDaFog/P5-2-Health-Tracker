@@ -15,6 +15,7 @@ app.FoodView = Backbone.View.extend({
 		this.model.attributes.quantity += 1;
 		this.model.save();
 		this.model.collection.trigger();
+		this.trigger('countStats');
 	},
 
 	decrementQnt: function() {
@@ -22,11 +23,13 @@ app.FoodView = Backbone.View.extend({
 			this.model.attributes.quantity -= 1;
 			this.model.save();
 			this.model.collection.trigger();
+			this.trigger('countStats');
 		}
 	},
 
 	removeItem: function() {
 		this.model.destroy();
+		this.trigger('countStats');
 	},
 
 	render: function() {
@@ -56,12 +59,17 @@ app.FoodListView = Backbone.View.extend({
   		this.render(); //TODO check is it needed?
   	},
 
+  	triggerCountStats: function() {
+  		this.trigger('countStats');
+  	},
+
 	render: function() {
 		this.$el.empty();
 
 		if (this.collection) {
 			this.collection.each(function(foodItem) {
 				var foodItemView = new app.FoodView({ model: foodItem });
+				this.listenTo(foodItemView, 'countStats', this.triggerCountStats);
 				this.$el.append(foodItemView.render().el);
 			}, this);
 		}
