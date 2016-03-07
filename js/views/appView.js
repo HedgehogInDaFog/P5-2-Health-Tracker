@@ -74,29 +74,85 @@ app.appView = Backbone.View.extend({
     },
 
     countStats: function() {
-        return true; //TODO
+        var currentDate = new Date();
+        var tempDate = new Date(),
+            tempCol,
+            tempKcal;
+        var max = 0,
+            maxDay = '-',
+            min = 1000000,
+            minDay = '-',
+            sum = 0,
+            nonZeroDays = 0,
+            average = 0;
+
+        for (var i=0; i<30; i++) {
+            tempDate.setDate(currentDate.getDate() - i);
+            tempCol = this.getCollectionByDate(this.dateView.dateToString(tempDate));
+            tempCol.fetch();
+            tempKcal = tempCol.totalCalories();
+
+            if (tempKcal > 0) {
+                nonZeroDays += 1;
+                sum += tempKcal;
+
+                if (tempKcal > max) {
+                    max = tempKcal;
+                    maxDay = this.dateView.dateToString(tempDate);
+                }
+
+                if (tempKcal < min) {
+                    min = tempKcal;
+                    minDay = this.dateView.dateToString(tempDate);
+                }
+            }
+        }
+        average = Math.round(sum/nonZeroDays);
+        console.log(max, maxDay, min, minDay, average)
+
+        this.statListView.collection.models.forEach(function(m) {
+            if (m.get('id') == 'max30') {
+                m.set('date', maxDay);
+                m.set('calories', max);
+            }
+
+            if (m.get('id') == 'min30') {
+                m.set('date', minDay);
+                m.set('calories', min);
+            }
+
+            if (m.get('id') == 'avr') {
+                m.set('calories', average);
+            }
+        });
+
+
+        return true;
     },
 
     initStatCollection: function() {
         var models = [];
         models.push(new app.Stat({
-                                name: 'Max per day (this month)',
+                                name: 'Max per day',
                                 calories: 0,
-                                date: ''
+                                date: '',
+                                id: 'max30'
                                 }
         ));
 
         models.push(new app.Stat({
-                                name: 'Min per day (this month)',
+                                name: 'Min per day',
                                 calories: 0,
-                                date: ''
+                                date: '',
+                                id: 'min30'
                                 }
         ));
 
         models.push(new app.Stat({
-                                name: 'Average per day (this month)',
+                                name: 'Average per day',
                                 calories: 0,
-                                date: 'N/A'
+                                date: 'N/A',
+                                id: 'avr'
                                 }
         ));
 

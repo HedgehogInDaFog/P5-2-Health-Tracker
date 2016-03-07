@@ -19,6 +19,7 @@ app.Stat = Backbone.Model.extend({
   defaults: {
     name: '',
     calories: 0,
-    date: ''
+    date: '',
+    id: ''
   }
 });
