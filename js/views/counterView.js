@@ -24,7 +24,7 @@ app.CounterView = Backbone.View.extend({
         if (this.collection) {
             this.$el.html(this.collection.totalCalories() );
         } else {
-            this.$el.html('0');
+            this.$el.html('0'); // in case there is no data in collection (in fact there is even no collection) just show zero
         }
         return this;
     },

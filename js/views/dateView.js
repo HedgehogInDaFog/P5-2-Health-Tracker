@@ -37,9 +37,9 @@ app.DateView = Backbone.View.extend({
     * @param {integer} numberOfDays - how many days the date is changed. Can be negative
     */
     addDays: function(numberOfDays) {
-        this.date.setDate(this.date.getDate() + numberOfDays);
+        this.date.setDate(this.date.getDate() + numberOfDays); //change date for number of days (can be negative)
         this.render();
-        this.trigger('changeDate', this.getDate());
+        this.trigger('changeDate', this.getDate()); //Trigger event for appView, cause in case of changing date there is a lot to do in other app's components
     },
 
     /**
@@ -47,7 +47,7 @@ app.DateView = Backbone.View.extend({
     * @description returns date as a string in a readable format
     */
     dateToString: function(date) {
-        return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
+        return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate(); //example of string is '2016-3-7' which means March'7 2016
     },
 
     getDate: function() {
