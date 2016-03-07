@@ -10,6 +10,7 @@
 
  var app = app || {};
 
+// Main view. Creates all other models, collections, views.
 app.appView = Backbone.View.extend({
     el: 'body',
 
@@ -25,6 +26,10 @@ app.appView = Backbone.View.extend({
         'keyup .food-kcal-input' : 'keyPressAdd'
     },
 
+    /**
+    * @function
+    * @description Initialize appView. Create downstream views. Add listeners to some events.
+    */
     initialize: function() {
 
     this.$foodNameString = $('.food-name-input');
@@ -55,6 +60,11 @@ app.appView = Backbone.View.extend({
     self = this;
     },
 
+    /**
+    * @function
+    * @description Add item from the search results. Is triggered by SearchListView (which itself is triggered by SearchView)
+    * @param {object} input - contains data needed to create new item (name, calories)
+    */
     addItem: function(input) {
         this.$searchString.val('');
         this.foodListView.addItem (new app.Food({
@@ -67,6 +77,10 @@ app.appView = Backbone.View.extend({
         self.countStats();
     },
 
+    /**
+    * @function
+    * @description Add item from the fields for manual input (in case user can't find food through API)
+    */
     addManually: function() {
         this.foodListView.addItem (new app.Food({
                     name: this.$foodNameString.val(),
@@ -80,12 +94,21 @@ app.appView = Backbone.View.extend({
         self.countStats();
     },
 
+    /**
+    * @function
+    * @description in case of data change, changes current collection (triggers other components to do it)
+    */
     changeCurrentCollection: function(currentDate) {
         var currentCollection = this.getCollectionByDate(currentDate)
         this.foodListView.changeCurrentCollection(currentCollection);
         this.counter.changeCurrentCollection(currentCollection);
     },
 
+    /**
+    * @function
+    * @description Counts current statistics. Days with zero calories do not affects the statistics.
+    * @description Modifies StatListView (in fact - modifies it's collection)
+    */
     countStats: function() {
         var currentDate = new Date();
         var tempDate = new Date(),
@@ -142,6 +165,11 @@ app.appView = Backbone.View.extend({
         return true;
     },
 
+    /**
+    * @function
+    * @description Simply returns collection for given date
+    * @param {string} currentDate - date in string format (YYYY-M-D), for which we want tot get collection
+    */
     getCollectionByDate: function(currentDate) {
         if (!this.foodCollections[currentDate]) {
           this.foodCollections[currentDate] = new app.FoodList([], {date : currentDate});
@@ -150,6 +178,10 @@ app.appView = Backbone.View.extend({
         return this.foodCollections[currentDate];
     },
 
+    /**
+    * @function
+    * @description Initialize app.StatList with statistical parameters. If you want to add new statistics you probably want to start here
+    */
     initStatCollection: function() {
         var models = [];
         models.push(new app.Stat({
@@ -182,18 +214,30 @@ app.appView = Backbone.View.extend({
         return collection;
     },
 
+    /**
+    * @function
+    * @description Handles event, when user presses "Enter" in case of manual data input
+    */
     keyPressAdd: function(e) {
         if(e.keyCode == 13) {
             self.addManually();
         }
     },
 
+    /**
+    * @function
+    * @description Handles event, when user presses "Enter" in case of search input
+    */
     keyPressSearch: function(e) {
         if(e.keyCode == 13) {
             self.searchItem();
         }
     },
 
+    /**
+    * @function
+    * @description Search food via Nutritionix API.
+    */
     searchItem: function() {
         var apiRequestTemplate = 'https://api.nutritionix.com/v1_1/search/%SEARCH%?fields=item_name%2Cnf_calories&appId=1c120cc3&appKey=99dd94d4da2652a426b99bbfb4c3da6c';
         var searchRequest = this.$searchString.val();
