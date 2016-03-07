@@ -10,6 +10,7 @@
 
  var app = app || {};
 
+// This view shows single (one) search result
 app.SearchView = Backbone.View.extend({
     tagName: 'div',
 
@@ -30,6 +31,8 @@ app.SearchView = Backbone.View.extend({
     }
 });
 
+// This view shows search results. It relies on collection (SearchList) and
+// creates SearchView for every search result
 app.SearchListView = Backbone.View.extend({
     el:  '.search-view',
 
@@ -38,6 +41,10 @@ app.SearchListView = Backbone.View.extend({
         this.listenTo(this.collection, 'all', this.render);
     },
 
+    /**
+    * @function
+    * @description for every model in the collection new view (app.SearchView) is created
+    */
     render: function() {
         this.$el.empty();
 

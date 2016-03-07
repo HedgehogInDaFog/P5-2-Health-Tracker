@@ -1,6 +1,6 @@
 /**
  * @file
- * Contains backbone's views for sttistics
+ * Contains backbone's views for statistics
  *
  * @author
  * Vladimir Vorotnikov
@@ -8,8 +8,9 @@
  *
  */
 
- var app = app || {};
+var app = app || {};
 
+// This view shows single (one) statical parameter
 app.StatView = Backbone.View.extend({
     tagName: 'div',
 
@@ -25,6 +26,8 @@ app.StatView = Backbone.View.extend({
     }
 });
 
+// This view shows statistics. It relies on collection (StatList) and
+// creates StatView for every statistics entity
 app.StatListView = Backbone.View.extend({
     el:  '.statistics-view',
 
@@ -33,6 +36,10 @@ app.StatListView = Backbone.View.extend({
         this.listenTo(this.collection, 'all', this.render);
     },
 
+    /**
+    * @function
+    * @description for every model in the collection new view (app.StatView) is created
+    */
     render: function() {
         this.$el.empty();
 

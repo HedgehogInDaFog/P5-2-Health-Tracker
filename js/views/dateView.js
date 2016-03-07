@@ -10,6 +10,7 @@
 
 var app = app || {};
 
+// This view shows the date and allows to change date
 app.DateView = Backbone.View.extend({
     el: '.date-view',
 
@@ -30,12 +31,21 @@ app.DateView = Backbone.View.extend({
         this.$dateField.text(this.dateToString(this.date))
     },
 
+    /**
+    * @function
+    * @description change date on the particular number of days
+    * @param {integer} numberOfDays - how many days the date is changed. Can be negative
+    */
     addDays: function(numberOfDays) {
         this.date.setDate(this.date.getDate() + numberOfDays);
         this.render();
         this.trigger('changeDate', this.getDate());
     },
 
+    /**
+    * @function
+    * @description returns date as a string in a readable format
+    */
     dateToString: function(date) {
         return date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate();
     },

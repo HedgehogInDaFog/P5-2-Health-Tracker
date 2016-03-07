@@ -10,6 +10,7 @@
 
 var app = app || {};
 
+// This view shows total calories for particaular day
 app.CounterView = Backbone.View.extend({
 
     el:  '.counter',
@@ -28,6 +29,11 @@ app.CounterView = Backbone.View.extend({
         return this;
     },
 
+    /**
+    * @function
+    * @description in case of changing current date (and collection in FoodListView), changes collection and redraws counter
+    * @param {object} collection - current collection
+    */
     changeCurrentCollection: function(collection) {
         this.collection = collection;
         this.listenTo(this.collection, 'all', this.render);
