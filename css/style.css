@@ -7,6 +7,15 @@
     margin: 0 auto;
 }
 
+h1 {
+    font-weight: 100;
+    font-size: 24px;
+    color: #000035;
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 2px;
+}
+
 .grid {
     max-width: 1200px;
     width: 100%;
@@ -84,6 +93,12 @@
     cursor: pointer;
 }
 
+.clear-button,
+.qnt-decr,
+.qnt-incr  {
+    cursor: pointer;
+}
+
 .counter {
     font-size: 28px;
     background-color: white;
@@ -97,6 +112,18 @@
     font-size: 22px;
     color: #000035;
     letter-spacing: 1.2px;
+}
+
+.eated-food-view {
+    width: 100%;
+}
+
+.food-kcal-input,
+.food-name-input,
+.search-string {
+    font-size: 20px;
+    padding-left: 15px;
+    width: 100%;
 }
 
 .header {
@@ -126,11 +153,7 @@
     text-align: left;
 }
 
-.food-kcal-input,
-.food-name-input,
-.search-string {
-    font-size: 20px;
-    padding-left: 15px;
+.search-view {
     width: 100%;
 }
 
@@ -148,30 +171,6 @@
     margin: 2px 0;
     text-align: left;
 }
-
-.eated-food-view {
-    width: 100%;
-}
-
-.search-view {
-    width: 100%;
-}
-
-.clear-button,
-.qnt-decr,
-.qnt-incr  {
-    cursor: pointer;
-}
-
-h1 {
-    font-weight: 100;
-    font-size: 24px;
-    color: #000035;
-    text-align: center;
-    letter-spacing: 2px;
-    margin: 2px;
-}
-
 
 @media screen and (max-width: 1200px) {
     h1 {

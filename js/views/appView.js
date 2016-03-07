@@ -111,7 +111,6 @@ app.appView = Backbone.View.extend({
             }
         }
         average = Math.round(sum/nonZeroDays);
-        console.log(max, maxDay, min, minDay, average)
 
         this.statListView.collection.models.forEach(function(m) {
             if (m.get('id') == 'max30') {
@@ -131,6 +130,14 @@ app.appView = Backbone.View.extend({
 
 
         return true;
+    },
+
+    getCollectionByDate: function(currentDate) {
+        if (!this.foodCollections[currentDate]) {
+          this.foodCollections[currentDate] = new app.FoodList([], {date : currentDate});
+        }
+
+        return this.foodCollections[currentDate];
     },
 
     initStatCollection: function() {
@@ -165,23 +172,15 @@ app.appView = Backbone.View.extend({
         return collection;
     },
 
-    getCollectionByDate: function(currentDate) {
-        if (!this.foodCollections[currentDate]) {
-          this.foodCollections[currentDate] = new app.FoodList([], {date : currentDate});
+    keyPressAdd: function(e) {
+        if(e.keyCode == 13) {
+            self.addManually();
         }
-
-        return this.foodCollections[currentDate];
     },
 
     keyPressSearch: function(e) {
         if(e.keyCode == 13) {
             self.searchItem();
-        }
-    },
-
-    keyPressAdd: function(e) {
-        if(e.keyCode == 13) {
-            self.addManually();
         }
     },
 
