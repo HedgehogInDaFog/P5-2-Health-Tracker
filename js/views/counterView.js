@@ -1,3 +1,13 @@
+/**
+ * @file
+ * Contains backbone's view for total calories counter
+ *
+ * @author
+ * Vladimir Vorotnikov
+ * v.s.vorotnikov@gmail.com
+ *
+ */
+
 var app = app || {};
 
 app.CounterView = Backbone.View.extend({

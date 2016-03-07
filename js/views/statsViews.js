@@ -1,4 +1,14 @@
-var app = app || {};
+/**
+ * @file
+ * Contains backbone's views for sttistics
+ *
+ * @author
+ * Vladimir Vorotnikov
+ * v.s.vorotnikov@gmail.com
+ *
+ */
+
+ var app = app || {};
 
 app.StatView = Backbone.View.extend({
     tagName: 'div',

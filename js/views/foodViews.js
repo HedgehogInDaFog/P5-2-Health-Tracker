@@ -1,3 +1,13 @@
+/**
+ * @file
+ * Contains backbone's views for food
+ *
+ * @author
+ * Vladimir Vorotnikov
+ * v.s.vorotnikov@gmail.com
+ *
+ */
+
 var app = app || {};
 
 app.FoodView = Backbone.View.extend({

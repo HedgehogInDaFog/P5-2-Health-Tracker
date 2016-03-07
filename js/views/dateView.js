@@ -1,3 +1,13 @@
+/**
+ * @file
+ * Contains backbone's view for date
+ *
+ * @author
+ * Vladimir Vorotnikov
+ * v.s.vorotnikov@gmail.com
+ *
+ */
+
 var app = app || {};
 
 app.DateView = Backbone.View.extend({

@@ -1,4 +1,14 @@
-var app = app || {};
+/**
+ * @file
+ * Contains backbone's views for search results
+ *
+ * @author
+ * Vladimir Vorotnikov
+ * v.s.vorotnikov@gmail.com
+ *
+ */
+
+ var app = app || {};
 
 app.SearchView = Backbone.View.extend({
     tagName: 'div',

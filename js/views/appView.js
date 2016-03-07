@@ -1,4 +1,14 @@
-var app = app || {};
+/**
+ * @file
+ * Contains main backbone's view: appView. It connects together other backbone components.
+ *
+ * @author
+ * Vladimir Vorotnikov
+ * v.s.vorotnikov@gmail.com
+ *
+ */
+
+ var app = app || {};
 
 app.appView = Backbone.View.extend({
     el: 'body',

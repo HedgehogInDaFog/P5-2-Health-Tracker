@@ -1,5 +1,16 @@
+/**
+ * @file
+ * Contains backbone models
+ *
+ * @author
+ * Vladimir Vorotnikov
+ * v.s.vorotnikov@gmail.com
+ *
+ */
+
 var app = app || {};
 
+//This model contains data about food, that user adds to his list
 app.Food = Backbone.Model.extend({
   defaults: {
     name: '',
@@ -8,6 +19,7 @@ app.Food = Backbone.Model.extend({
   }
 });
 
+//This model contains search result
 app.Search = Backbone.Model.extend({
   defaults: {
     name: '',
@@ -15,6 +27,7 @@ app.Search = Backbone.Model.extend({
   }
 });
 
+//This model contains statistics
 app.Stat = Backbone.Model.extend({
   defaults: {
     name: '',
