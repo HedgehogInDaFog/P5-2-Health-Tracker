@@ -32,11 +32,11 @@ app.FoodView = Backbone.View.extend({
     * @description decrements quantity of this particular food, when usec clicks button
     */
     decrementQnt: function() {
-        if (this.model.attributes.quantity > 0) {
+        if (this.model.attributes.quantity > 0) { //quantity of food can't be less then zero
             this.model.attributes.quantity -= 1;
             this.model.save();
             this.model.collection.trigger();
-            this.trigger('countStats');
+            this.trigger('countStats'); //trigger recalculation of statistics
         }
     },
 
@@ -48,12 +48,12 @@ app.FoodView = Backbone.View.extend({
         this.model.attributes.quantity += 1;
         this.model.save();
         this.model.collection.trigger();
-        this.trigger('countStats');
+        this.trigger('countStats'); //trigger recalculation of statistics
     },
 
     removeItem: function() {
         this.model.destroy();
-        this.trigger('countStats');
+        this.trigger('countStats'); //trigger recalculation of statistics
     }
 });
 
