@@ -11,7 +11,7 @@
  var app = app || {};
 
 // Main view. Creates all other models, collections, views.
-app.appView = Backbone.View.extend({
+app.AppView = Backbone.View.extend({
     el: 'body',
 
     template: _.template($('#loadingFailedTemplate').html() ),

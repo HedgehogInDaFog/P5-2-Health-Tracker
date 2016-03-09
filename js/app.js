@@ -8,4 +8,4 @@
  *
  */
 
-app.view = new app.appView();
+app.view = new app.AppView();
