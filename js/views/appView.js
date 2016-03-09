@@ -116,7 +116,7 @@ app.AppView = Backbone.View.extend({
             tempKcal;
         var max = 0, //maximum kcalories per day
             maxDay = '-', //day, when user reacher max calories
-            min = 1000000, //smilar for mininum calories per day. Won't work correct if user adds more then 1000000 kcalories per day
+            min = 1000000, //similar for mininum calories per day. Won't work correct if user adds more then 1000000 kcalories per day
             minDay = '-',
             sum = 0, // sum of all calories for last 30 days
             nonZeroDays = 0, //number of days, where there were more than 0 calories
@@ -144,6 +144,10 @@ app.AppView = Backbone.View.extend({
             }
         }
         average = Math.round(sum/nonZeroDays);
+
+        if (min == 1000000) {
+            min = 0;
+        }
 
         this.statListView.collection.models.forEach(function(m) {
             if (m.get('id') == 'max30') {
