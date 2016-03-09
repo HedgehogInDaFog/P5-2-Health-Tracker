@@ -53,7 +53,7 @@ app.AppView = Backbone.View.extend({
 
     this.listenTo(this.searchListView, 'addItem', this.addItem);
     this.listenTo(this.dateView, 'changeDate', this.changeCurrentCollection);
-    this.listenTo(this.foodListView, 'countStats', this.countStats)
+    this.listenTo(this.foodListView, 'countStats', this.countStats);
 
     this.countStats();
 
@@ -99,7 +99,7 @@ app.AppView = Backbone.View.extend({
     * @description in case of data change, changes current collection (triggers other components to do it)
     */
     changeCurrentCollection: function(currentDate) {
-        var currentCollection = this.getCollectionByDate(currentDate)
+        var currentCollection = this.getCollectionByDate(currentDate);
         this.foodListView.changeCurrentCollection(currentCollection);
         this.counter.changeCurrentCollection(currentCollection);
     },

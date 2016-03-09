@@ -22,13 +22,13 @@ app.DateView = Backbone.View.extend({
     },
 
     initialize: function() {
-        this.$dateField = $('.date-field')
+        this.$dateField = $('.date-field');
         this.date = new Date();
         this.$dateField.append(this.dateToString(this.date));
     },
 
     render: function() {
-        this.$dateField.text(this.dateToString(this.date))
+        this.$dateField.text(this.dateToString(this.date));
     },
 
     /**
