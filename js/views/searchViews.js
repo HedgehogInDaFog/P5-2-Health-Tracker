@@ -26,8 +26,8 @@ app.SearchView = Backbone.View.extend({
     },
 
     addItem: function() {
-        this.trigger("addItem", this.model.attributes);
-        this.model.destroy();
+        this.trigger("addItem", this.model.attributes); //in case of adding new item from search list, appView needs to know about it. So we trigger this event
+        this.model.destroy(); //remove from search list, if we added it to the list of eaten food
     }
 });
 
@@ -50,7 +50,7 @@ app.SearchListView = Backbone.View.extend({
 
         this.collection.each(function(searchItem) {
             var searchItemView = new app.SearchView({ model: searchItem });
-            this.listenTo(searchItemView, 'addItem', this.addItem);
+            this.listenTo(searchItemView, 'addItem', this.addItem); // is triggered by app.SearchView, if some item from a list need to be added to a food list
             this.$el.append(searchItemView.render().el);
         }, this);
 

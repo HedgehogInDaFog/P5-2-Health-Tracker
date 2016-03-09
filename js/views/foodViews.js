@@ -77,7 +77,7 @@ app.FoodListView = Backbone.View.extend({
         if (this.collection) {
             this.collection.each(function(foodItem) {
                 var foodItemView = new app.FoodView({ model: foodItem });
-                this.listenTo(foodItemView, 'countStats', this.triggerCountStats);
+                this.listenTo(foodItemView, 'countStats', this.triggerCountStats); // is triggered by app.FoodView, if recalculation of statistics is needed
                 this.$el.append(foodItemView.render().el);
             }, this);
         }
@@ -101,6 +101,6 @@ app.FoodListView = Backbone.View.extend({
     },
 
     triggerCountStats: function() {
-        this.trigger('countStats');
+        this.trigger('countStats'); // trigger recalculation of statistics in a main view (app.appView)
     }
 });

@@ -40,7 +40,7 @@ app.appView = Backbone.View.extend({
 
     this.dateView = new app.DateView();
 
-    this.foodCollections = {};
+    this.foodCollections = {}; //we'll keep here collections of food (1 collection for every date)
     this.foodCollections[this.dateView.getDate()] = new app.FoodList([], {date : this.dateView.getDate()});
 
     this.foodListView = new app.FoodListView({collection: this.foodCollections[this.dateView.getDate()]});
@@ -74,7 +74,7 @@ app.appView = Backbone.View.extend({
                     })
         );
 
-        self.countStats();
+        self.countStats(); //after any change in food list we need to recount statistics
     },
 
     /**
@@ -91,7 +91,7 @@ app.appView = Backbone.View.extend({
         this.$foodNameString.val('');
         this.$foodKcalString.val('');
 
-        self.countStats();
+        self.countStats(); //after any change in food list we need to recount statistics
     },
 
     /**
@@ -114,21 +114,21 @@ app.appView = Backbone.View.extend({
         var tempDate = new Date(),
             tempCol,
             tempKcal;
-        var max = 0,
-            maxDay = '-',
-            min = 1000000,
+        var max = 0, //maximum kcalories per day
+            maxDay = '-', //day, when user reacher max calories
+            min = 1000000, //smilar for mininum calories per day. Won't work correct if user adds more then 1000000 kcalories per day
             minDay = '-',
-            sum = 0,
-            nonZeroDays = 0,
+            sum = 0, // sum of all calories for last 30 days
+            nonZeroDays = 0, //number of days, where there were more than 0 calories
             average = 0;
 
-        for (var i=0; i<30; i++) {
+        for (var i=0; i<30; i++) { //from current day to 30 days back
             tempDate.setDate(currentDate.getDate() - i);
-            tempCol = this.getCollectionByDate(this.dateView.dateToString(tempDate));
+            tempCol = this.getCollectionByDate(this.dateView.dateToString(tempDate)); //get collection with food items
             tempCol.fetch();
-            tempKcal = tempCol.totalCalories();
+            tempKcal = tempCol.totalCalories(); //get total calories for this day
 
-            if (tempKcal > 0) {
+            if (tempKcal > 0) { // if calories in this day > 0
                 nonZeroDays += 1;
                 sum += tempKcal;
 
@@ -157,10 +157,9 @@ app.appView = Backbone.View.extend({
             }
 
             if (m.get('id') == 'avr') {
-                m.set('calories', average);
+                m.set('calories', average); //obviously no particular date for average kcal
             }
         });
-
 
         return true;
     },
@@ -172,7 +171,7 @@ app.appView = Backbone.View.extend({
     */
     getCollectionByDate: function(currentDate) {
         if (!this.foodCollections[currentDate]) {
-          this.foodCollections[currentDate] = new app.FoodList([], {date : currentDate});
+          this.foodCollections[currentDate] = new app.FoodList([], {date : currentDate}); //if there is no collection for currentDate - create new empty one
         }
 
         return this.foodCollections[currentDate];
@@ -244,7 +243,7 @@ app.appView = Backbone.View.extend({
         var apiRequest = apiRequestTemplate.replace('%SEARCH%',searchRequest);
 
         self.searchListView.collection.reset();
-        self.$searchView.html(self.templateLoading);
+        self.$searchView.html(self.templateLoading); //show nice loading indicator
 
         var apiRequestTimeout = setTimeout(function() {
                 self.$searchView.html(self.template);
