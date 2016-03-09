@@ -32,7 +32,8 @@ Besides HTML, CSS and native JavaScript, the following libraries/tools were used
 
 ### Views
 
-You can see views on this picture: [Link](https://github.com/TrueZarathustra/P5-2-Health-Tracker/images/views_map.jpg)
+You can see views on this picture: !
+![view map](https://raw.githubusercontent.com/TrueZarathustra/P5-2-Health-Tracker/master/images/view_map.jpg)
 
 ## Contact information
 
