@@ -8,6 +8,8 @@
  *
  */
 
+'use strict';
+
  var app = app || {};
 
 // Main view. Creates all other models, collections, views.
@@ -145,22 +147,22 @@ app.AppView = Backbone.View.extend({
         }
         average = Math.round(sum/nonZeroDays);
 
-        if (min == 1000000) {
+        if (min === 1000000) {
             min = 0;
         }
 
         this.statListView.collection.models.forEach(function(m) {
-            if (m.get('id') == 'max30') {
+            if (m.get('id') === 'max30') {
                 m.set('date', maxDay);
                 m.set('calories', max);
             }
 
-            if (m.get('id') == 'min30') {
+            if (m.get('id') === 'min30') {
                 m.set('date', minDay);
                 m.set('calories', min);
             }
 
-            if (m.get('id') == 'avr') {
+            if (m.get('id') === 'avr') {
                 m.set('calories', average); //obviously no particular date for average kcal
             }
         });
@@ -222,7 +224,7 @@ app.AppView = Backbone.View.extend({
     * @description Handles event, when user presses "Enter" in case of manual data input
     */
     keyPressAdd: function(e) {
-        if(e.keyCode == 13) {
+        if(e.keyCode === 13) {
             self.addManually();
         }
     },
@@ -232,7 +234,7 @@ app.AppView = Backbone.View.extend({
     * @description Handles event, when user presses "Enter" in case of search input
     */
     keyPressSearch: function(e) {
-        if(e.keyCode == 13) {
+        if(e.keyCode === 13) {
             self.searchItem();
         }
     },

@@ -8,6 +8,8 @@
  *
  */
 
+'use strict';
+
 var app = app || {};
 
 //This collection contains data about eaten food in a particular date

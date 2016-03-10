@@ -8,6 +8,8 @@
  *
  */
 
+'use strict';
+
  var app = app || {};
 
 // This view shows single (one) search result

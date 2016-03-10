@@ -8,6 +8,8 @@
  *
  */
 
+'use strict';
+
 var app = app || {};
 
 // This view shows the date and allows to change date

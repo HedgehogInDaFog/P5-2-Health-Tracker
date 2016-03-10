@@ -24,7 +24,12 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src('js/*.js')
+    return gulp.src([
+                    'js/models.js',
+                    'js/collections.js',
+                    'js/views/**/*.js',
+                    'js/app.js'
+    ])
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'))
     .pipe(concat('app.js'))
