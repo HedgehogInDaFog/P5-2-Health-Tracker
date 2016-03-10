@@ -8,6 +8,8 @@
  *
  */
 
+'use strict';
+
 var app = app || {};
 
 // This view shows one eaten food (with quantity and calories)

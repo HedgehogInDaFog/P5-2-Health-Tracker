@@ -8,6 +8,8 @@
  *
  */
 
+'use strict';
+
  var app = app || {};
 
 // Main view. Creates all other models, collections, views.
@@ -53,7 +55,7 @@ app.AppView = Backbone.View.extend({
 
     this.listenTo(this.searchListView, 'addItem', this.addItem);
     this.listenTo(this.dateView, 'changeDate', this.changeCurrentCollection);
-    this.listenTo(this.foodListView, 'countStats', this.countStats)
+    this.listenTo(this.foodListView, 'countStats', this.countStats);
 
     this.countStats();
 
@@ -99,7 +101,7 @@ app.AppView = Backbone.View.extend({
     * @description in case of data change, changes current collection (triggers other components to do it)
     */
     changeCurrentCollection: function(currentDate) {
-        var currentCollection = this.getCollectionByDate(currentDate)
+        var currentCollection = this.getCollectionByDate(currentDate);
         this.foodListView.changeCurrentCollection(currentCollection);
         this.counter.changeCurrentCollection(currentCollection);
     },
@@ -116,7 +118,7 @@ app.AppView = Backbone.View.extend({
             tempKcal;
         var max = 0, //maximum kcalories per day
             maxDay = '-', //day, when user reacher max calories
-            min = 1000000, //smilar for mininum calories per day. Won't work correct if user adds more then 1000000 kcalories per day
+            min = 1000000, //similar for mininum calories per day. Won't work correct if user adds more then 1000000 kcalories per day
             minDay = '-',
             sum = 0, // sum of all calories for last 30 days
             nonZeroDays = 0, //number of days, where there were more than 0 calories
@@ -145,18 +147,22 @@ app.AppView = Backbone.View.extend({
         }
         average = Math.round(sum/nonZeroDays);
 
+        if (min === 1000000) {
+            min = 0;
+        }
+
         this.statListView.collection.models.forEach(function(m) {
-            if (m.get('id') == 'max30') {
+            if (m.get('id') === 'max30') {
                 m.set('date', maxDay);
                 m.set('calories', max);
             }
 
-            if (m.get('id') == 'min30') {
+            if (m.get('id') === 'min30') {
                 m.set('date', minDay);
                 m.set('calories', min);
             }
 
-            if (m.get('id') == 'avr') {
+            if (m.get('id') === 'avr') {
                 m.set('calories', average); //obviously no particular date for average kcal
             }
         });
@@ -218,7 +224,7 @@ app.AppView = Backbone.View.extend({
     * @description Handles event, when user presses "Enter" in case of manual data input
     */
     keyPressAdd: function(e) {
-        if(e.keyCode == 13) {
+        if(e.keyCode === 13) {
             self.addManually();
         }
     },
@@ -228,7 +234,7 @@ app.AppView = Backbone.View.extend({
     * @description Handles event, when user presses "Enter" in case of search input
     */
     keyPressSearch: function(e) {
-        if(e.keyCode == 13) {
+        if(e.keyCode === 13) {
             self.searchItem();
         }
     },

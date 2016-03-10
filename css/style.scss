@@ -1,0 +1,269 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family:  'Lucida Grande',  Verdana, Tahoma, sans-serif;
+    margin: 0 auto;
+}
+
+h1 {
+    font-weight: 100;
+    font-size: 24px;
+    color: #000035;
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 2px;
+}
+
+.grid {
+    max-width: 1200px;
+    width: 100%;
+
+}
+
+.row {
+    width: 100%;
+    margin: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 5px auto;
+}
+
+.center {
+    align-items: center;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+
+.col-2 {
+    width: 16.66%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.66%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.66%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33%;
+}
+
+.col-11 {
+    width: 91.66%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+.button {
+    font-size: 18px;
+    max-width: 300px;
+    background-color: #000035;
+    color: white;
+    text-align: center;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+.clear-button,
+.qnt-decr,
+.qnt-incr  {
+    cursor: pointer;
+}
+
+.counter {
+    font-size: 28px;
+    background-color: white;
+    color: #000035;
+    margin: 10px auto;
+    font-weight: bold;
+}
+
+.date {
+    font-weight: bold;
+    font-size: 22px;
+    color: #000035;
+    letter-spacing: 1.2px;
+}
+
+.eated-food-view {
+    width: 100%;
+}
+
+.food-kcal-input,
+.food-name-input,
+.search-string {
+    font-size: 20px;
+    padding-left: 15px;
+    width: 100%;
+}
+
+.header {
+    background-color: white;
+    margin: 0 auto 30px auto;
+}
+
+.items-list {
+    font-size: 18px;
+    margin: 0;
+}
+
+.lr-margins {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.margin-top {
+    margin-top: 50px;
+}
+
+.normal-text {
+    font-size: 20px;
+    color: #000035;
+    letter-spacing: 1.5px;
+    margin: 10px 0;
+    text-align: left;
+}
+
+.search-view {
+    width: 100%;
+}
+
+.small-button {
+    background-color: #000035;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.small-text {
+    font-size: 18px;
+    color: #000035;
+    letter-spacing: 1.1px;
+    margin: 2px 0;
+    text-align: left;
+}
+
+@media screen and (max-width: 1200px) {
+    h1 {
+        font-size: 1.9vw;
+    }
+
+    .small-text,
+    .items-list,
+    .button {
+        font-size: 1.5vw;
+    }
+
+    .small-button {
+        font-size: 1.4vw;
+    }
+
+    .normal-text,
+    .date,
+    .search-string,
+    .food-name-input,
+    .food-kcal-input  {
+        font-size: 1.6vw;
+    }
+
+    .counter {
+        font-size: 2.1vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+
+     h1 {
+        font-size: 2.1vw;
+    }
+
+    .small-text,
+    .items-list,
+    .button {
+        font-size: 1.7vw;
+    }
+
+    .small-button {
+        font-size: 1.6vw;
+    }
+
+    .normal-text,
+    .date,
+    .search-string,
+    .food-name-input,
+    .food-kcal-input  {
+        font-size: 1.8vw;
+    }
+
+    .counter {
+        font-size: 2.3vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+     h1 {
+        font-size: 2.9vw;
+    }
+
+    .small-text,
+    .items-list,
+    .button {
+        font-size: 2.5vw;
+    }
+
+    .small-button {
+        font-size: 2.4vw;
+    }
+
+    .normal-text,
+    .search-string,
+    .food-name-input,
+    .food-kcal-input  {
+        font-size: 2.6vw;
+    }
+
+    .fw-for-narrow {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 30px;
+    }
+
+    .date,
+    .counter {
+        font-size: 3.1vw;
+    }
+}
+
+
+

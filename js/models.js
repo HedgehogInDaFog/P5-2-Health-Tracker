@@ -8,6 +8,8 @@
  *
  */
 
+'use strict';
+
 var app = app || {};
 
 //This model contains data about food, that user adds to his list

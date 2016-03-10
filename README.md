@@ -9,7 +9,7 @@ Application helps user to track his calories. User can add the food, you've eate
 
 ### General Usage Notes
 
-To run the application, open this [Link](http://truezarathustra.github.io/P5-2-Health-Tracker/) in your browser. During the search process, it may takes up to 8 seconds to ge information from third-party resources, so, please, be patient :)
+To run the application, open this [Link](http://truezarathustra.github.io/P5-2-Health-Tracker/index.html) in your browser. During the search process, it may takes up to 8 seconds to ge information from third-party resources, so, please, be patient :)
 If something goes wrong, you can try to reload main page. If it doesn't help, please, feel free to write me about your problem
 
 You can also run this application locally. To do that:

@@ -8,4 +8,8 @@
  *
  */
 
+ 'use strict';
+
+var app = app || {};
+
 app.view = new app.AppView();
